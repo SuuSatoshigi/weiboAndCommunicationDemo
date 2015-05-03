@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITabBarController
+#import "WeiboSDK.h"
 
+@interface MainViewController : UITabBarController<WBHttpRequestDelegate>
+
+
+@property (strong, nonatomic) NSString *wbtoken;
+@property (strong, nonatomic) NSString *wbCurrentUserID;
 @end

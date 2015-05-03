@@ -9,5 +9,8 @@
 #import "BaseViewController.h"
 
 @interface HomeViewController : BaseViewController
-
+@property (nonatomic, retain) UIButton *shareButton;
+@property (nonatomic, retain) UISwitch *textSwitch;
+@property (nonatomic, retain) UISwitch *imageSwitch;
+@property (nonatomic, retain) UISwitch *mediaSwitch;
 @end

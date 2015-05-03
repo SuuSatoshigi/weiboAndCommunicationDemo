@@ -11,6 +11,6 @@
 
 
 #define kAppKey         @"1589467727"
-#define kRedirectURI    @"http://www.sina.com"
+#define kRedirectURI    @"https://api.weibo.com/oauth2/default.html"
 
 #endif

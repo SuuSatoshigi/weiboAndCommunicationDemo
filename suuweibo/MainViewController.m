@@ -59,9 +59,10 @@
     self.viewControllers = viewControllers;
 }
 
-//- (void)selectTab:(UITabBarItem *)taBar {
-//    self.selectedIndex = taBar.tag;
-//    
-//}
+
+
+
+#pragma mark - weibo delegate
+
 
 @end

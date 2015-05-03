@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WeiboSDK.h"
 @interface BaseViewController : UIViewController
 
+- (WeiboSDK *)weiboSDK;
 @end

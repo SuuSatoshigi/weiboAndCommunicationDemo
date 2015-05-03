@@ -49,6 +49,8 @@
 		31BB9AB31AF5DD6100C30416 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9AB21AF5DD6100C30416 /* CFNetwork.framework */; };
 		31BB9AB51AF5DD8C00C30416 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9AB41AF5DD8C00C30416 /* Security.framework */; };
 		31BB9AB71AF5DD9300C30416 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9AB61AF5DD9300C30416 /* SystemConfiguration.framework */; };
+		31BB9ABE1AF62E3900C30416 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9ABD1AF62E3900C30416 /* ImageIO.framework */; };
+		31BB9AC01AF62E5300C30416 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 /* End PBXBuildFile section */
@@ -138,6 +140,8 @@
 		31BB9AB41AF5DD8C00C30416 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		31BB9AB61AF5DD9300C30416 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31BB9AB81AF60CBB00C30416 /* CONSTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
+		31BB9ABD1AF62E3900C30416 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -156,15 +160,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31BB9AB71AF5DD9300C30416 /* SystemConfiguration.framework in Frameworks */,
-				31BB9AB51AF5DD8C00C30416 /* Security.framework in Frameworks */,
-				31BB9AB31AF5DD6100C30416 /* CFNetwork.framework in Frameworks */,
-				317A66F81AECB711004F85BB /* CoreText.framework in Frameworks */,
-				E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */,
-				317A66F11AEC965F004F85BB /* UIKit.framework in Frameworks */,
-				317A66EF1AEC9653004F85BB /* QuartzCore.framework in Frameworks */,
 				317A66ED1AEC962B004F85BB /* Foundation.framework in Frameworks */,
 				317A66EB1AEC9609004F85BB /* CoreGraphics.framework in Frameworks */,
+				317A66F81AECB711004F85BB /* CoreText.framework in Frameworks */,
+				31BB9AC01AF62E5300C30416 /* CoreTelephony.framework in Frameworks */,
+				31BB9AB51AF5DD8C00C30416 /* Security.framework in Frameworks */,
+				31BB9AB71AF5DD9300C30416 /* SystemConfiguration.framework in Frameworks */,
+				31BB9ABE1AF62E3900C30416 /* ImageIO.framework in Frameworks */,
+				317A66EF1AEC9653004F85BB /* QuartzCore.framework in Frameworks */,
+				31BB9AB31AF5DD6100C30416 /* CFNetwork.framework in Frameworks */,
+				E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */,
+				317A66F11AEC965F004F85BB /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +195,8 @@
 		317A668B1AEC8EB7004F85BB = {
 			isa = PBXGroup;
 			children = (
+				31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */,
+				31BB9ABD1AF62E3900C30416 /* ImageIO.framework */,
 				31BB9AB61AF5DD9300C30416 /* SystemConfiguration.framework */,
 				31BB9AB41AF5DD8C00C30416 /* Security.framework */,
 				31BB9AB21AF5DD6100C30416 /* CFNetwork.framework */,
@@ -666,7 +674,10 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "76807167-3e76-4002-baa9-acfefa0352b8";
 			};
@@ -688,7 +699,10 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "76807167-3e76-4002-baa9-acfefa0352b8";
 			};

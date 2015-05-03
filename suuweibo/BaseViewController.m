@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "AppDelegate.h"
 @interface BaseViewController ()
 
 @end
@@ -23,6 +23,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (WeiboSDK *)weiboSDK{
+//    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+//    
+//}
 
 /*
 #pragma mark - Navigation

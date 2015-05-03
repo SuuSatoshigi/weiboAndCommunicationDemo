@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@property (strong, nonatomic) MainViewController *mainCtrl;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;
