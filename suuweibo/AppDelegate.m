@@ -32,8 +32,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]autorelease]
-;
+    self.window = [[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]autorelease];
     
     self.window.backgroundColor = [UIColor whiteColor];
     _mainCtrl = [[MainViewController alloc] init];
@@ -53,14 +52,17 @@
 
     
     return YES;
-}
+};
+
+
+#pragma mark - weibo delegate
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     NSLog(@"openurl");
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
-#pragma mark - weibo delegate
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return [WeiboSDK handleOpenURL:url delegate:self ];
@@ -83,14 +85,17 @@
                                               otherButtonTitles:nil];
         WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
         NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
+        
         if (accessToken)
         {
-            self.wbtoken = accessToken;
+            self.author.accessToken = accessToken;
         }
         NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
         if (userID) {
-            self.wbCurrentUserID = userID;
+            self.author.userID = userID;
         }
+        self.author.expirationDate = [sendMessageToWeiboResponse.authResponse expirationDate];
+        self.author.refreshToken = [sendMessageToWeiboResponse.authResponse refreshToken];
         [alert show];
         [alert release];
     }
@@ -104,8 +109,10 @@
                                               cancelButtonTitle:NSLocalizedString(@"确定", nil)
                                               otherButtonTitles:nil];
         
-        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
-        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
+        self.author.accessToken = [(WBAuthorizeResponse *)response accessToken];
+        self.author.userID = [(WBAuthorizeResponse *)response userID];
+        self.author.expirationDate = [(WBAuthorizeResponse *)response expirationDate];
+        self.author.refreshToken = [(WBAuthorizeResponse *)response refreshToken];
         [alert show];
         [alert release];
     }
@@ -122,5 +129,7 @@
         [alert release];
     }
 }
+
+
 
 @end

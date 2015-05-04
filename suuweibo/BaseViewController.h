@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "WeiboSDK.h"
+#import "AppDelegate.h"
 @interface BaseViewController : UIViewController
 
-- (WeiboSDK *)weiboSDK;
+- (AppDelegate *)myAppDelegate;
+- (void)removeWeiboAuth:(AppDelegate *) myAppDelegate;
+- (void)saveWeiboAuth:(AppDelegate *) myAppDelegate;
 @end

@@ -61,8 +61,4 @@
 
 
 
-
-#pragma mark - weibo delegate
-
-
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "AppDelegate.h"
+
 @interface BaseViewController ()
 
 @end
@@ -24,19 +24,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (WeiboSDK *)weiboSDK{
-//    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-//    
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//override
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.text = title;
+    [titleLabel sizeToFit];
+    
+    self.navigationItem.titleView = [titleLabel autorelease];
 }
-*/
 
+- (AppDelegate *)myAppDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+#pragma mark -- delegate
+- (void)saveWeiboAuth:(AppDelegate *) myAppDelegate{
+    //保存用户数据到本地
+    NSDictionary *auth = [NSDictionary dictionaryWithObjectsAndKeys:
+                          myAppDelegate.author.accessToken, @"AccessAndTokenKey",
+                          myAppDelegate.author.expirationDate, @"ExpirationDate",
+                          myAppDelegate.author.userID, @"UserID",
+                          myAppDelegate.author.refreshToken, @"RefreshToken", nil];
+    [[NSUserDefaults standardUserDefaults]setObject:auth forKey:@"weiboUserAuth"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+
+
+- (void)removeWeiboAuth:(AppDelegate *) myAppDelegate {
+    //移除
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"weiboUserAuth"];
+}
 @end

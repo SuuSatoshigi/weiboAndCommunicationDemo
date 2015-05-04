@@ -13,6 +13,6 @@
 @interface MainViewController : UITabBarController<WBHttpRequestDelegate>
 
 
-@property (strong, nonatomic) NSString *wbtoken;
-@property (strong, nonatomic) NSString *wbCurrentUserID;
+
+
 @end
