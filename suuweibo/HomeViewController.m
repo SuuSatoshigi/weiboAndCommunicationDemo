@@ -36,11 +36,12 @@
     self.navigationItem.leftBarButtonItem = [loginOutItem autorelease];
     // Do any additional setup after loading the view from its nib.
   
-    NSLog(@"%@",self.myAppDelegate.author.accessToken);
     
+    NSLog(@"%@",self.myAppDelegate.author.accessToken);
     //判断是否登录微博了
-    if (self.myAppDelegate.author.accessToken != nil) {
+    if (self.myAppDelegate.author.accessToken) {
         [self loadData];
+        NSLog(@"%@",self.myAppDelegate.author.accessToken);
     }
 }
 
@@ -64,7 +65,7 @@
 {
     NSString *title = nil;
     UIAlertView *alert = nil;
-
+    NSLog(@"%@",request.url);
     title = NSLocalizedString(@"收到网络回调", nil);
     alert = [[UIAlertView alloc] initWithTitle:title
                                        message:[NSString stringWithFormat:@"%@",result]
