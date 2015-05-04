@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110E6FAB1AF10B5D002DFFB7 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E6FA91AF10B5D002DFFB7 /* LeftViewController.m */; };
+		110E6FAB1AF10B5D002DFFB7 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E6FA91AF10B5D002DFFB7 /* LeftViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		110E6FAC1AF10B5D002DFFB7 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E6FAA1AF10B5D002DFFB7 /* LeftViewController.xib */; };
-		110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E6FAE1AF10C89002DFFB7 /* RightViewController.m */; };
+		110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E6FAE1AF10C89002DFFB7 /* RightViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		110E6FB11AF10C89002DFFB7 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E6FAF1AF10C89002DFFB7 /* RightViewController.xib */; };
 		317A669A1AEC8EB7004F85BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66991AEC8EB7004F85BB /* main.m */; };
 		317A669D1AEC8EB7004F85BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A669C1AEC8EB7004F85BB /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,6 +53,8 @@
 		31BB9AC01AF62E5300C30416 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
+		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE761AF7D95200257329 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6BBCE751AF7D95200257329 /* theme.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,9 @@
 		E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		E665C30B1AF39365002D8F20 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		E665C30C1AF39365002D8F20 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		E6BBCE721AF7D8FB00257329 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
+		E6BBCE731AF7D8FB00257329 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		E6BBCE751AF7D95200257329 /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +249,7 @@
 		317A66971AEC8EB7004F85BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E6BBCE711AF7D8AA00257329 /* thenmeManager */,
 				110E6FB21AF355E6002DFFB7 /* opensource */,
 				317A66BD1AEC9228004F85BB /* uitil */,
 				317A66981AEC8EB7004F85BB /* Info.plist */,
@@ -421,6 +427,16 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		E6BBCE711AF7D8AA00257329 /* thenmeManager */ = {
+			isa = PBXGroup;
+			children = (
+				E6BBCE721AF7D8FB00257329 /* ThemeManager.h */,
+				E6BBCE731AF7D8FB00257329 /* ThemeManager.m */,
+				E6BBCE751AF7D95200257329 /* theme.plist */,
+			);
+			name = thenmeManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -509,6 +525,7 @@
 				317A67201AECC28B004F85BB /* MoreViewController.xib in Resources */,
 				317A670C1AECBEFA004F85BB /* HomeViewController.xib in Resources */,
 				317A67161AECC079004F85BB /* ProfileViewController.xib in Resources */,
+				E6BBCE761AF7D95200257329 /* theme.plist in Resources */,
 				E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */,
 				110E6FB11AF10C89002DFFB7 /* RightViewController.xib in Resources */,
 				317A67111AECC015004F85BB /* MessageViewController.xib in Resources */,
@@ -532,6 +549,7 @@
 			files = (
 				317A669D1AEC8EB7004F85BB /* AppDelegate.m in Sources */,
 				317A66C61AEC9314004F85BB /* WXHLGlobalUICommon.m in Sources */,
+				E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */,
 				317A66E31AEC9479004F85BB /* SDWebImageDownloader.m in Sources */,
 				317A66E61AEC9479004F85BB /* UIImageView+WebCache.m in Sources */,
 				317A66CA1AEC9437004F85BB /* WXBaseModel.m in Sources */,
