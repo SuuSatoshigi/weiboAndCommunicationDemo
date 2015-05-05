@@ -70,13 +70,7 @@ static ThemeManager *singleThemeObject = nil;
     return singleThemeObject;
 }
 
-- (instancetype)copyWithZone:(NSZone *)zone{
-    
-    return self;
-    
-}
-
-- (instancetype)retain {
+- (id)retain {
     return self;
 }
 

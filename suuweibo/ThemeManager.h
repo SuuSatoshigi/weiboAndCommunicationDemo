@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define kThemeDidChangeNotification @"kThemeDidChangeNotification"
 
 @interface ThemeManager : NSObject
 //当前主题名

@@ -55,6 +55,7 @@
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E6BBCE761AF7D95200257329 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6BBCE751AF7D95200257329 /* theme.plist */; };
+		E6BBCE791AF906F300257329 /* themeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE781AF906F300257329 /* themeButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		E6BBCE721AF7D8FB00257329 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		E6BBCE731AF7D8FB00257329 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
 		E6BBCE751AF7D95200257329 /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
+		E6BBCE771AF906F300257329 /* themeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = themeButton.h; sourceTree = "<group>"; };
+		E6BBCE781AF906F300257329 /* themeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = themeButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +436,8 @@
 				E6BBCE721AF7D8FB00257329 /* ThemeManager.h */,
 				E6BBCE731AF7D8FB00257329 /* ThemeManager.m */,
 				E6BBCE751AF7D95200257329 /* theme.plist */,
+				E6BBCE771AF906F300257329 /* themeButton.h */,
+				E6BBCE781AF906F300257329 /* themeButton.m */,
 			);
 			name = thenmeManager;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				317A67101AECC015004F85BB /* MessageViewController.m in Sources */,
 				317A66FF1AECBCEB004F85BB /* BaseViewController.m in Sources */,
 				317A66E51AEC9479004F85BB /* UIButton+WebCache.m in Sources */,
+				E6BBCE791AF906F300257329 /* themeButton.m in Sources */,
 				317A67021AECBD7B004F85BB /* BaseNavigationController.m in Sources */,
 				317A67151AECC079004F85BB /* ProfileViewController.m in Sources */,
 				317A66E41AEC9479004F85BB /* SDWebImageManager.m in Sources */,
