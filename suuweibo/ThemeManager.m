@@ -69,11 +69,11 @@ static ThemeManager *singleThemeObject = nil;
 }
 
 - (UIColor *)getColorWithName:(NSString *)name {
-    if (name.length != 0) {
+    if (name.length == 0) {
         return nil;
     }
     
-    //三色值
+    //返回三色值，如：24,35,60
     NSString *rgb = [_fontColorPlist objectForKey:name];
     NSArray *rgbs = [rgb componentsSeparatedByString:@","];
     if (rgbs.count == 3) {
@@ -83,6 +83,7 @@ static ThemeManager *singleThemeObject = nil;
         UIColor *color = color(r, g, b, 1);
         return color;
     }
+    
     return nil;
 }
 

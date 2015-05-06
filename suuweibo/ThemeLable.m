@@ -10,7 +10,7 @@
 #import "ThemeManager.h"
 @implementation ThemeLable
 //最好复写这个方法。写监听通知的代码，因为其等级最高
-- (instancetype)init {
+- (id)init {
     self = [super init];
     if (self != nil) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeNotification:) name:kThemeDidChangeNotification object:nil];
@@ -18,17 +18,12 @@
     return self;
 }
 
-- (instancetype)initWithColorName:(NSString *)colorName {
-    self = [super init];
+- (id)initWithColorName:(NSString *)colorName {
+    self = [self init];
     if (self != nil) {
         self.colorName = colorName;
     }
     return self;
-}
-
-- (void)setColor {
-    UIColor *color = [[ThemeManager shareInstance] getColorWithName:_colorName];
-    self.textColor = color;
 }
 
 - (void)setColorName:(NSString *)colorName {
@@ -36,17 +31,27 @@
         [_colorName release];
         _colorName = [colorName copy];
     }
+    
     [self setColor];
 }
 
-#pragma mark -- notification activity
+- (void)setColor {
+    UIColor *textColor = [[ThemeManager shareInstance] getColorWithName:_colorName];
+    self.textColor = textColor;
+}
+
+#pragma mark - NSNotification actions
 - (void)themeNotification:(NSNotification *)notification {
     [self setColor];
 }
 
+
+
+//移除所有绑定的通知减少安全隐患
 - (void)dealloc {
     [super dealloc];
-    //移除所有绑定的通知减少安全隐患
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_colorName release];
 }
+
 @end
