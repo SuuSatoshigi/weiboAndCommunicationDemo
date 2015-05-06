@@ -7,15 +7,24 @@
 //
 
 #import "BaseViewController.h"
-
+#import "UIFactory.h"
 @interface BaseViewController ()
 
 @end
 
 @implementation BaseViewController
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -24,18 +33,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 //override
+//设置导航栏上的标题
 - (void)setTitle:(NSString *)title {
     [super setTitle:title];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleLabel.textColor = [UIColor whiteColor];
+    UILabel *titleLabel = [UIFactory createThemeLable:kNavigationBarTitleLabel];
     titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = title;
     [titleLabel sizeToFit];
     
-    self.navigationItem.titleView = [titleLabel autorelease];
+    self.navigationItem.titleView = titleLabel;
 }
+//override
+//- (void)setTitle:(NSString *)title {
+//    [super setTitle:title];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+//    titleLabel.textColor = [UIColor whiteColor];
+//    titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    titleLabel.text = title;
+//    [titleLabel sizeToFit];
+//    
+//    self.navigationItem.titleView = [titleLabel autorelease];
+//}
 
 - (AppDelegate *)myAppDelegate {
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];

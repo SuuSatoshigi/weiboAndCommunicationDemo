@@ -17,3 +17,4 @@
 #endif
 
 #import "WXHLGlobalUICommon.h"
+#import "CONSTS.h"

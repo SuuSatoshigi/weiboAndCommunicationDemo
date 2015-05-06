@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>pink</key>
-	<string>Images.xcassets/pink</string>
+	<string>Skins/pink</string>
 	<key>blue</key>
-	<string>Images.xcassets/blue</string>
+	<string>Skins/blue</string>
 </dict>
 </plist>

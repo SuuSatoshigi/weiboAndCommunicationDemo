@@ -56,6 +56,12 @@
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E6BBCE761AF7D95200257329 /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6BBCE751AF7D95200257329 /* theme.plist */; };
 		E6BBCE791AF906F300257329 /* themeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE781AF906F300257329 /* themeButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE7D1AF9E6D400257329 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE7B1AF9E6D400257329 /* ThemeViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE7E1AF9E6D400257329 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BBCE7C1AF9E6D400257329 /* ThemeViewController.xib */; };
+		E6BBCE801AFA1DCB00257329 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = E6BBCE7F1AFA1DCB00257329 /* Skins */; };
+		E6BBCE831AFA605600257329 /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE821AFA605600257329 /* ThemeImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE861AFA64DE00257329 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE851AFA64DE00257329 /* UIFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE891AFA802600257329 /* ThemeLable.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE881AFA802600257329 /* ThemeLable.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +167,16 @@
 		E6BBCE751AF7D95200257329 /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
 		E6BBCE771AF906F300257329 /* themeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = themeButton.h; sourceTree = "<group>"; };
 		E6BBCE781AF906F300257329 /* themeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = themeButton.m; sourceTree = "<group>"; };
+		E6BBCE7A1AF9E6D400257329 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		E6BBCE7B1AF9E6D400257329 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		E6BBCE7C1AF9E6D400257329 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
+		E6BBCE7F1AFA1DCB00257329 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Skins; sourceTree = "<group>"; };
+		E6BBCE811AFA605600257329 /* ThemeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeImageView.h; sourceTree = "<group>"; };
+		E6BBCE821AFA605600257329 /* ThemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeImageView.m; sourceTree = "<group>"; };
+		E6BBCE841AFA64DE00257329 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
+		E6BBCE851AFA64DE00257329 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
+		E6BBCE871AFA802600257329 /* ThemeLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLable.h; sourceTree = "<group>"; };
+		E6BBCE881AFA802600257329 /* ThemeLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +268,7 @@
 		317A66971AEC8EB7004F85BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E6BBCE7F1AFA1DCB00257329 /* Skins */,
 				E6BBCE711AF7D8AA00257329 /* thenmeManager */,
 				110E6FB21AF355E6002DFFB7 /* opensource */,
 				317A66BD1AEC9228004F85BB /* uitil */,
@@ -408,6 +425,9 @@
 				317A671C1AECC28B004F85BB /* MoreViewController.h */,
 				317A671D1AECC28B004F85BB /* MoreViewController.m */,
 				317A671E1AECC28B004F85BB /* MoreViewController.xib */,
+				E6BBCE7A1AF9E6D400257329 /* ThemeViewController.h */,
+				E6BBCE7B1AF9E6D400257329 /* ThemeViewController.m */,
+				E6BBCE7C1AF9E6D400257329 /* ThemeViewController.xib */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -438,6 +458,12 @@
 				E6BBCE751AF7D95200257329 /* theme.plist */,
 				E6BBCE771AF906F300257329 /* themeButton.h */,
 				E6BBCE781AF906F300257329 /* themeButton.m */,
+				E6BBCE811AFA605600257329 /* ThemeImageView.h */,
+				E6BBCE821AFA605600257329 /* ThemeImageView.m */,
+				E6BBCE841AFA64DE00257329 /* UIFactory.h */,
+				E6BBCE851AFA64DE00257329 /* UIFactory.m */,
+				E6BBCE871AFA802600257329 /* ThemeLable.h */,
+				E6BBCE881AFA802600257329 /* ThemeLable.m */,
 			);
 			name = thenmeManager;
 			sourceTree = "<group>";
@@ -524,12 +550,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6BBCE801AFA1DCB00257329 /* Skins in Resources */,
 				31BB9AB11AF5D0C700C30416 /* libWeiboSDK.a in Resources */,
 				317A66A51AEC8EB7004F85BB /* Images.xcassets in Resources */,
 				110E6FAC1AF10B5D002DFFB7 /* LeftViewController.xib in Resources */,
 				317A67201AECC28B004F85BB /* MoreViewController.xib in Resources */,
 				317A670C1AECBEFA004F85BB /* HomeViewController.xib in Resources */,
 				317A67161AECC079004F85BB /* ProfileViewController.xib in Resources */,
+				E6BBCE7E1AF9E6D400257329 /* ThemeViewController.xib in Resources */,
 				E6BBCE761AF7D95200257329 /* theme.plist in Resources */,
 				E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */,
 				110E6FB11AF10C89002DFFB7 /* RightViewController.xib in Resources */,
@@ -552,8 +580,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6BBCE861AFA64DE00257329 /* UIFactory.m in Sources */,
 				317A669D1AEC8EB7004F85BB /* AppDelegate.m in Sources */,
+				E6BBCE891AFA802600257329 /* ThemeLable.m in Sources */,
 				317A66C61AEC9314004F85BB /* WXHLGlobalUICommon.m in Sources */,
+				E6BBCE7D1AF9E6D400257329 /* ThemeViewController.m in Sources */,
 				E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */,
 				317A66E31AEC9479004F85BB /* SDWebImageDownloader.m in Sources */,
 				317A66E61AEC9479004F85BB /* UIImageView+WebCache.m in Sources */,
@@ -575,6 +606,7 @@
 				317A66E41AEC9479004F85BB /* SDWebImageManager.m in Sources */,
 				317A671A1AECC245004F85BB /* DiscoverViewController.m in Sources */,
 				317A66D21AEC946E004F85BB /* RTLabel.m in Sources */,
+				E6BBCE831AFA605600257329 /* ThemeImageView.m in Sources */,
 				317A66E21AEC9479004F85BB /* SDImageCache.m in Sources */,
 				317A66FB1AECBB48004F85BB /* MainViewController.m in Sources */,
 				317A66E91AEC94C4004F85BB /* CustomCatagory.m in Sources */,
@@ -700,10 +732,7 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = (
-					"-fobjc-arc",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-fobjc-arc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -725,10 +754,7 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = (
-					"-fobjc-arc",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-fobjc-arc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
