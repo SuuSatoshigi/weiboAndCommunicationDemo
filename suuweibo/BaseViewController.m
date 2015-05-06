@@ -38,7 +38,6 @@
 //设置导航栏上的标题
 - (void)setTitle:(NSString *)title {
     [super setTitle:title];
-    NSLog(@"%@",kNavigationBarTitleLabel);
     UILabel *titleLabel = [UIFactory createThemeLable:kNavigationBarTitleLabel];
     if ([ThemeManager shareInstance].themeName.length == 0) {
         titleLabel.textColor = [UIColor whiteColor];

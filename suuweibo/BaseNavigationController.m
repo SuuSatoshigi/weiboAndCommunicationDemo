@@ -44,15 +44,14 @@
 //    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12.0F],  NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
     
     self.navigationBar.tintColor = [UIColor whiteColor];
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+//    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     float version = WXHLOSVersion();
     if ([ThemeManager shareInstance].themeName.length == 0) {
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar.jpg"] forBarMetrics:UIBarMetricsDefault];
-     
-//        ThemeImageView *tabarImageView = [UIFactory createThemeImageView:@"bar.jpg"];
-//        tabarImageView.frame = self.tabBarController.tabBar.bounds;
-//        [self.tabBarController.tabBar addSubview:tabarImageView];
+//        self.tabBarController.tabBar.backgroundColor = [UIColor blackColor];
+        UIImage *image = [[ThemeManager shareInstance] getThemesImage:@"navigationbar_background.png"];
+        self.tabBarController.tabBar.backgroundImage = image;
     } else {
         if ( version >= 5.0 ) {
             UIImage *image = [[ThemeManager shareInstance] getThemesImage:@"navigationbar_background.png"];
