@@ -12,7 +12,7 @@
 #import "LeftViewController.h"
 #import "RightViewController.h"
 #import "WeiboSDK.h"
-
+#import "ThemeManager.h"
 #import "CONSTS.h"
 @interface AppDelegate ()<WeiboSDKDelegate>
 
@@ -35,6 +35,8 @@
     self.window = [[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds]autorelease];
     
     self.window.backgroundColor = [UIColor whiteColor];
+    //设置主题
+    [self setTheme];
     _mainCtrl = [[MainViewController alloc] init];
     
     [self _initSinaWeibo];
@@ -54,6 +56,10 @@
     return YES;
 };
 
+- (void)setTheme {
+    NSString *themeName = [[NSUserDefaults standardUserDefaults] objectForKey:kThemeName];
+    [[ThemeManager shareInstance] setThemeName:themeName];
+}
 
 #pragma mark - weibo delegate
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

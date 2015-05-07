@@ -67,10 +67,12 @@
         themeName = @"默认";
     }
     
-    //比较cell中的主题名和当前使用的主题名是否相同
+    //比较cell中的主题名和当前使用的主题名是否相同，增加一个打勾的框
     if ([themeName isEqualToString:name]) {
+        //打勾
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
+    //        消除
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     return cell;
@@ -83,8 +85,14 @@
     if ([themeName isEqualToString:@"默认"]) {
         themeName = nil;
     }
+    //保存主题到本地
+    [[NSUserDefaults standardUserDefaults] setObject:themeName forKey:kThemeName];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [ThemeManager shareInstance].themeName =themeName;
     [[NSNotificationCenter defaultCenter] postNotificationName:kThemeDidChangeNotification object:themeName];
+    
+//    打勾的框不能随着点击按钮更新
+    [tableView reloadData];
 }
 
 
