@@ -1,5 +1,5 @@
 //
-//  WXBaseModel.h
+//  BaseModel.h
 //  MTWeibo
 //  所有对象实体的基类
 
@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WXBaseModel : NSObject <NSCoding>{
+@interface BaseModel : NSObject <NSCoding>{
 
 }
 

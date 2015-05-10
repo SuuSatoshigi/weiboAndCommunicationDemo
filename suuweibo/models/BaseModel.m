@@ -6,9 +6,9 @@
 //  Copyright 2011年 www.iphonetrain.com 无限互联ios开发培训中心 All rights reserved.
 //
 
-#import "WXBaseModel.h"
+#import "BaseModel.h"
 
-@implementation WXBaseModel
+@implementation BaseModel
 
 -(id)initWithDataDic:(NSDictionary*)data{
 	if (self = [super init]) {

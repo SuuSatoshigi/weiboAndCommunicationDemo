@@ -104,6 +104,7 @@
         self.author.refreshToken = [sendMessageToWeiboResponse.authResponse refreshToken];
         [alert show];
         [alert release];
+        
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
@@ -121,6 +122,8 @@
         self.author.refreshToken = [(WBAuthorizeResponse *)response refreshToken];
         [alert show];
         [alert release];
+        
+        
     }
     else if ([response isKindOfClass:WBPaymentResponse.class])
     {
@@ -134,8 +137,16 @@
         [alert show];
         [alert release];
     }
+    [self setUseRInfo];
 }
 
+- (void)setUseRInfo {
+    //保存到本地
+    NSLog(@"_______%@", _author.accessToken);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:_author forKey:kAuther];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 
+}
 
 @end

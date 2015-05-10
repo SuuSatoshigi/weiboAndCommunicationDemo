@@ -18,7 +18,7 @@
 		317A66C21AEC92D2004F85BB /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66BF1AEC92D2004F85BB /* UIUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66C31AEC92D2004F85BB /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66C11AEC92D2004F85BB /* UIViewExt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66C61AEC9314004F85BB /* WXHLGlobalUICommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66C51AEC9314004F85BB /* WXHLGlobalUICommon.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		317A66CA1AEC9437004F85BB /* WXBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66C91AEC9437004F85BB /* WXBaseModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		317A66CA1AEC9437004F85BB /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66C91AEC9437004F85BB /* BaseModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66D11AEC946E004F85BB /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66CD1AEC946E004F85BB /* DDMenuController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66D21AEC946E004F85BB /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66D01AEC946E004F85BB /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66E21AEC9479004F85BB /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66D51AEC9479004F85BB /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -62,6 +62,8 @@
 		E6BBCE831AFA605600257329 /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE821AFA605600257329 /* ThemeImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E6BBCE861AFA64DE00257329 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE851AFA64DE00257329 /* UIFactory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E6BBCE891AFA802600257329 /* ThemeLable.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE881AFA802600257329 /* ThemeLable.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE8C1AFB77BD00257329 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE8B1AFB77BD00257329 /* WeiboModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E6BBCE8F1AFB7AC400257329 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE8E1AFB7AC400257329 /* UserModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,8 +98,8 @@
 		317A66C11AEC92D2004F85BB /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		317A66C41AEC9314004F85BB /* WXHLGlobalUICommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXHLGlobalUICommon.h; sourceTree = "<group>"; };
 		317A66C51AEC9314004F85BB /* WXHLGlobalUICommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXHLGlobalUICommon.m; sourceTree = "<group>"; };
-		317A66C81AEC9437004F85BB /* WXBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXBaseModel.h; sourceTree = "<group>"; };
-		317A66C91AEC9437004F85BB /* WXBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXBaseModel.m; sourceTree = "<group>"; };
+		317A66C81AEC9437004F85BB /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		317A66C91AEC9437004F85BB /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		317A66CC1AEC946E004F85BB /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		317A66CD1AEC946E004F85BB /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		317A66CF1AEC946E004F85BB /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
@@ -177,6 +179,10 @@
 		E6BBCE851AFA64DE00257329 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 		E6BBCE871AFA802600257329 /* ThemeLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLable.h; sourceTree = "<group>"; };
 		E6BBCE881AFA802600257329 /* ThemeLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLable.m; sourceTree = "<group>"; };
+		E6BBCE8A1AFB77BD00257329 /* WeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboModel.h; sourceTree = "<group>"; };
+		E6BBCE8B1AFB77BD00257329 /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
+		E6BBCE8D1AFB7AC400257329 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		E6BBCE8E1AFB7AC400257329 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,8 +323,12 @@
 		317A66C71AEC9437004F85BB /* models */ = {
 			isa = PBXGroup;
 			children = (
-				317A66C81AEC9437004F85BB /* WXBaseModel.h */,
-				317A66C91AEC9437004F85BB /* WXBaseModel.m */,
+				317A66C81AEC9437004F85BB /* BaseModel.h */,
+				317A66C91AEC9437004F85BB /* BaseModel.m */,
+				E6BBCE8A1AFB77BD00257329 /* WeiboModel.h */,
+				E6BBCE8B1AFB77BD00257329 /* WeiboModel.m */,
+				E6BBCE8D1AFB7AC400257329 /* UserModel.h */,
+				E6BBCE8E1AFB7AC400257329 /* UserModel.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -588,7 +598,7 @@
 				E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */,
 				317A66E31AEC9479004F85BB /* SDWebImageDownloader.m in Sources */,
 				317A66E61AEC9479004F85BB /* UIImageView+WebCache.m in Sources */,
-				317A66CA1AEC9437004F85BB /* WXBaseModel.m in Sources */,
+				317A66CA1AEC9437004F85BB /* BaseModel.m in Sources */,
 				110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */,
 				317A670B1AECBEFA004F85BB /* HomeViewController.m in Sources */,
 				317A66C31AEC92D2004F85BB /* UIViewExt.m in Sources */,
@@ -597,10 +607,12 @@
 				317A671F1AECC28B004F85BB /* MoreViewController.m in Sources */,
 				317A66C21AEC92D2004F85BB /* UIUtils.m in Sources */,
 				110E6FAB1AF10B5D002DFFB7 /* LeftViewController.m in Sources */,
+				E6BBCE8C1AFB77BD00257329 /* WeiboModel.m in Sources */,
 				317A67101AECC015004F85BB /* MessageViewController.m in Sources */,
 				317A66FF1AECBCEB004F85BB /* BaseViewController.m in Sources */,
 				317A66E51AEC9479004F85BB /* UIButton+WebCache.m in Sources */,
 				E6BBCE791AF906F300257329 /* themeButton.m in Sources */,
+				E6BBCE8F1AFB7AC400257329 /* UserModel.m in Sources */,
 				317A67021AECBD7B004F85BB /* BaseNavigationController.m in Sources */,
 				317A67151AECC079004F85BB /* ProfileViewController.m in Sources */,
 				317A66E41AEC9479004F85BB /* SDWebImageManager.m in Sources */,
@@ -732,7 +744,10 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -754,7 +769,10 @@
 					"$(PROJECT_DIR)/suuweibo/libWeiboSDK/**",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				OTHER_LDFLAGS = "-fobjc-arc";
+				OTHER_LDFLAGS = (
+					"-fobjc-arc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
