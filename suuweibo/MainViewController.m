@@ -43,11 +43,11 @@
 
 //初始化子控制器
 - (void)_initViewController {
-    HomeViewController *home = [[HomeViewController alloc] init];
-    MessageViewController *message = [[MessageViewController alloc] init];
-    ProfileViewController *profile = [[ProfileViewController alloc] init];
-    DiscoverViewController *discover = [[DiscoverViewController alloc]init];
-    MoreViewController *more = [[MoreViewController alloc] init];
+    HomeViewController *home = [[[HomeViewController alloc] init] autorelease];
+    MessageViewController *message = [[[MessageViewController alloc] init] autorelease];
+    ProfileViewController *profile = [[[ProfileViewController alloc] init] autorelease];
+    DiscoverViewController *discover = [[[DiscoverViewController alloc]init] autorelease];
+    MoreViewController *more = [[[MoreViewController alloc] init] autorelease];
 
     NSArray *views = @[home,message,profile,discover,more];
     NSMutableArray *viewControllers = [NSMutableArray arrayWithCapacity:5];

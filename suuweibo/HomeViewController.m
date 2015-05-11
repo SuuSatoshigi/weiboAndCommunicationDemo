@@ -38,14 +38,12 @@
     UIBarButtonItem *bindItem = [[UIBarButtonItem alloc] initWithTitle:@"绑定账号" style:UIBarButtonItemStylePlain target:self action:@selector(bindAction:)];
     self.navigationItem.rightBarButtonItem = [bindItem autorelease];
     
-    WBAuthorizeResponse *author = [[NSUserDefaults standardUserDefaults] objectForKey:kAuther];
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
    
-    
-    NSLog(@"====%@",[[[NSUserDefaults standardUserDefaults] objectForKey:kAuther] accessToken]);
     NSLog(@"++++%@",[[NSUserDefaults standardUserDefaults] objectForKey:kThemeName]);
-    NSLog(@"------%@",author);
+    NSLog(@"------%@",accessToken);
     //判断是否登录微博了
-    if (author.accessToken.length != 0) {
+    if (accessToken.length != 0) {
         [self loadData];
     }
 }
@@ -54,9 +52,9 @@
 - (void)loadData {
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
     NSLog(@"%@",url);
-    [WBHttpRequest requestWithAccessToken:self.myAppDelegate.author.accessToken
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
                                       url:url
-                               httpMethod:@"Get"
+                               httpMethod:@"GET"
                                    params:nil
                                  delegate:self
                                   withTag:nil];
@@ -65,10 +63,19 @@
 
 #pragma mark -
 #pragma WBHttpRequestDelegate
-- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
-    
-}
-
+//- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
+//    
+//}
+//retain和assign的区别是这个自动生成的代码是否有release和retain
+//retain是有这两个的，而assgin是没有的
+//- (void)setShareButton:(UIButton *)shareButton{
+//    if (shareButton != _shareButton) {
+//        [_shareButton release];
+//        _shareButton = nil;
+//        _shareButton = [shareButton retain];
+//        
+//    }
+//}
 
 
 //网络加载完成
@@ -76,12 +83,13 @@
 {
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
     NSArray *statuse = [dic objectForKey:@"statuses"];
+    //这个方法返回一个添加了autorelease的对象
     NSMutableArray *weibo = [NSMutableArray arrayWithCapacity:statuse.count];
     for (NSDictionary *statusDic in statuse) {
         WeiboModel *weiboModel = [[WeiboModel alloc] initWithDataDic:statusDic];
         [weibo addObject:weiboModel];
-        [dic release];
-        [statuse release];
+        //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
+        [weiboModel release];
     }
     NSLog(@"---------------123%@",weibo);
     NSLog(@"%@",request.url);
@@ -181,6 +189,7 @@
 
 - (void)viewDidUnload {
     //under ios 6.0
+    [super viewDidUnload];
 }
 
 @end

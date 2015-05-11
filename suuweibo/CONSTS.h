@@ -10,7 +10,7 @@
 #define suuweibo_CONSTS_h
 
 
-#define kAuther         @"kAuther"
+#define kAccessToken         @"kAccessToken"
 #define kThemeName      @"kThemeName"
 #define kAppKey         @"1589467727"
 #define kRedirectURI    @"https://api.weibo.com/oauth2/default.html"

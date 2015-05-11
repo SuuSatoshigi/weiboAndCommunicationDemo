@@ -50,8 +50,10 @@
     self.window.rootViewController = menu;
     
     [self.window makeKeyAndVisible];
-
-
+//不能写
+//    [rightCtrl release];
+//    [menu release];
+//    [leftCtrl release];
     
     return YES;
 };
@@ -80,6 +82,7 @@
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
+    self.author = [[[WBAuthorizeResponse alloc] init]autorelease];
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
     {
         NSString *title = NSLocalizedString(@"发送结果", nil);
@@ -143,8 +146,10 @@
 - (void)setUseRInfo {
     //保存到本地
     NSLog(@"_______%@", _author.accessToken);
+    //只能选自己ns的，不能设置其他的，要能设进去的话就要实现nscoding协议
+//    [[NSUserDefaults standardUserDefaults] setObject:_author forKey:kAuther];
+    [[NSUserDefaults standardUserDefaults] setObject:_author.accessToken forKey:kAccessToken];
     
-    [[NSUserDefaults standardUserDefaults] setObject:_author forKey:kAuther];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }

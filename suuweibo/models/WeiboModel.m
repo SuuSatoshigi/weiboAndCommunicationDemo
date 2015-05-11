@@ -44,7 +44,7 @@
     if (user != nil) {
         UserModel *userModel = [[UserModel alloc] initWithDataDic:user];
         self.user = userModel;
-        [user release];
+        [userModel release];
     }
     
 }

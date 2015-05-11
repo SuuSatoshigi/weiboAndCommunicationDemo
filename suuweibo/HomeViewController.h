@@ -13,5 +13,5 @@
 @property (nonatomic, retain) UISwitch *textSwitch;
 @property (nonatomic, retain) UISwitch *imageSwitch;
 @property (nonatomic, retain) UISwitch *mediaSwitch;
-
+//
 @end

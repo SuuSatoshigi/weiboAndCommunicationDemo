@@ -51,6 +51,8 @@
 		31BB9AB71AF5DD9300C30416 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9AB61AF5DD9300C30416 /* SystemConfiguration.framework */; };
 		31BB9ABE1AF62E3900C30416 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9ABD1AF62E3900C30416 /* ImageIO.framework */; };
 		31BB9AC01AF62E5300C30416 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */; };
+		E62B2D931B00750D00E5322E /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2D921B00750D00E5322E /* WeiboCell.m */; };
+		E62B2D961B00754F00E5322E /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2D951B00754F00E5322E /* WeiboView.m */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -153,6 +155,10 @@
 		31BB9AB81AF60CBB00C30416 /* CONSTS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
 		31BB9ABD1AF62E3900C30416 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E62B2D911B00750D00E5322E /* WeiboCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboCell.h; sourceTree = "<group>"; };
+		E62B2D921B00750D00E5322E /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
+		E62B2D941B00754F00E5322E /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
+		E62B2D951B00754F00E5322E /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -395,6 +401,10 @@
 				317A67081AECBEFA004F85BB /* HomeViewController.h */,
 				317A67091AECBEFA004F85BB /* HomeViewController.m */,
 				317A670A1AECBEFA004F85BB /* HomeViewController.xib */,
+				E62B2D911B00750D00E5322E /* WeiboCell.h */,
+				E62B2D921B00750D00E5322E /* WeiboCell.m */,
+				E62B2D941B00754F00E5322E /* WeiboView.h */,
+				E62B2D951B00754F00E5322E /* WeiboView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -597,6 +607,7 @@
 				E6BBCE7D1AF9E6D400257329 /* ThemeViewController.m in Sources */,
 				E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */,
 				317A66E31AEC9479004F85BB /* SDWebImageDownloader.m in Sources */,
+				E62B2D961B00754F00E5322E /* WeiboView.m in Sources */,
 				317A66E61AEC9479004F85BB /* UIImageView+WebCache.m in Sources */,
 				317A66CA1AEC9437004F85BB /* BaseModel.m in Sources */,
 				110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */,
@@ -619,6 +630,7 @@
 				317A671A1AECC245004F85BB /* DiscoverViewController.m in Sources */,
 				317A66D21AEC946E004F85BB /* RTLabel.m in Sources */,
 				E6BBCE831AFA605600257329 /* ThemeImageView.m in Sources */,
+				E62B2D931B00750D00E5322E /* WeiboCell.m in Sources */,
 				317A66E21AEC9479004F85BB /* SDImageCache.m in Sources */,
 				317A66FB1AECBB48004F85BB /* MainViewController.m in Sources */,
 				317A66E91AEC94C4004F85BB /* CustomCatagory.m in Sources */,
