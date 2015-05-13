@@ -10,7 +10,8 @@
 #import "AppDelegate.h"
 #import "CONSTS.h"
 #import "WeiboModel.h"
-
+#import "WeiboCell.h"
+#import "WeiboView.h"
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
 @end
@@ -91,9 +92,10 @@
         //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
         [weiboModel release];
     }
-    NSLog(@"---------------123%@",weibo);
-    NSLog(@"%@",request.url);
+    self.data = weibo;
     
+    //刷新tableview
+    [self.tableView reloadData];
 //    NSString *title = nil;
 //    UIAlertView *alert = nil;
 //
@@ -143,6 +145,32 @@
 - (void)loginOutAction:(UIBarButtonItem *)buttonItem {
     [WeiboSDK logOutWithToken:self.myAppDelegate.author.accessToken delegate:self withTag:@"user1"];
     [self removeWeiboAuth:self.myAppDelegate];
+}
+
+#pragma mark --delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identify = @"weiboCell";
+    WeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    if (cell == nil) {
+        cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify] autorelease];
+    }
+    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
+    cell.weibo = weibo;
+    return cell;
+}
+
+//不能使用创建cell对象的方法获得参数，因为会产生死循环
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
+    //weibocell的子视图都不是转发视图，这个高度仅仅是weibo视图的高度，不是cell的高度
+    float height = [WeiboView getWeiboViewHeight:weibo isRepost:NO isDetail:NO];
+    height += 50;
+    
+    return height;
 }
 
 #pragma Internal Method
