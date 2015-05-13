@@ -10,7 +10,12 @@
 
 @interface ThemeImageView : UIImageView
 
-@property (nonatomic, copy)NSString *imageName;
+@property(nonatomic, copy)NSString *imageName;
+
+
+//为了防止切换主题时，转发微博背景变形
+@property(nonatomic,assign)int leftCapWidth;
+@property(nonatomic,assign)int topCapHeight;
 
 - (instancetype)initWithImageName:(NSString *)imageName;
 

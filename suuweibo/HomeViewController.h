@@ -8,10 +8,15 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,WBHttpRequestDelegate>
 @property (nonatomic, retain) UIButton *shareButton;
 @property (nonatomic, retain) UISwitch *textSwitch;
 @property (nonatomic, retain) UISwitch *imageSwitch;
 @property (nonatomic, retain) UISwitch *mediaSwitch;
 //
+
+@property (retain, nonatomic) NSArray *data;
+
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
+
 @end

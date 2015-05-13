@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453017629.144779"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453216633.464061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "-messageToShare"
             landmarkType = "5">
          </BreakpointContent>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453216633.464061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-messageToShare"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-loginOutAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-request:didFinishLoadingWithDataResult:"
             landmarkType = "5">
             <Locations>
@@ -262,7 +262,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-request:didFinishLoadingWithDataResult:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "suuweibo/HomeViewController.m"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -274,15 +290,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-request:didFinishLoadingWithDataResult:"
             landmarkType = "5">
          </BreakpointContent>
@@ -294,27 +310,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-request:didFinishLoadingWithDataResult:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453017629.144779"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -326,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-request:didFinishLoadingWithDataResult:"
             landmarkType = "5">
          </BreakpointContent>
@@ -342,7 +342,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453017629.144779"
+            timestampString = "453215835.788185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-loadData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "suuweibo/HomeViewController.m"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -358,27 +374,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453017629.144779"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-loadData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453017629.144779"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -403,11 +403,11 @@
                   symbolName = "-[WeiboCell weibo]"
                   moduleName = "suuweibo"
                   urlString = "file:///Users/suusatoshigi/Desktop/suusatoshigi/SuuWeiboFromSuu/suuweibo/WeiboCell.h"
-                  timestampString = "453021156.124475"
+                  timestampString = "453215836.781676"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
@@ -417,11 +417,11 @@
                   symbolName = "-[WeiboCell setWeibo:]"
                   moduleName = "suuweibo"
                   urlString = "file:///Users/suusatoshigi/Desktop/suusatoshigi/SuuWeiboFromSuu/suuweibo/WeiboCell.h"
-                  timestampString = "453021156.125626"
+                  timestampString = "453215836.784321"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -434,43 +434,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/WeiboView.h"
-            timestampString = "453017099.245203"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "weiboModel"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WeiboView weiboModel]"
-                  moduleName = "suuweibo"
-                  urlString = "file:///Users/suusatoshigi/Desktop/suusatoshigi/SuuWeiboFromSuu/suuweibo/WeiboView.h"
-                  timestampString = "453021156.153378"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WeiboView setWeiboModel:]"
-                  moduleName = "suuweibo"
-                  urlString = "file:///Users/suusatoshigi/Desktop/suusatoshigi/SuuWeiboFromSuu/suuweibo/WeiboView.h"
-                  timestampString = "453021156.154367"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -544,12 +514,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/HomeViewController.m"
-            timestampString = "453020112.845753"
+            timestampString = "453215835.788185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "-request:didFailWithError:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "suuweibo/WeiboView.m"
+            timestampString = "453217321.837498"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-layoutSubviews"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "suuweibo/WeiboView.m"
+            timestampString = "453217321.837498"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-layoutSubviews"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "suuweibo/HomeViewController.m"
+            timestampString = "453213970.477925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
