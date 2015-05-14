@@ -11,6 +11,7 @@
 #import "WeiboModel.h"
 #import "UIImageView+WebCache.h"
 #import "ThemeImageView.h"
+#import "RegexKitLite.h"
 #define LIST_FONT   14.0f           //列表中文本字体
 #define LIST_REPOST_FONT  13.0f;    //列表中转发的文本字体
 #define DETAIL_FONT  18.0f          //详情的文本字体
@@ -30,6 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _initView];
+        _parseLink = [NSMutableString string];
     }
     return self;
 }
@@ -81,14 +83,50 @@
     }
 }
 
+//解析超链接
+- (void) parseLink {
+    [_parseLink setString:@""];
+    NSString *text = _weiboModel.text;
+    //正则表达式
+    NSString *regex = @"(@//w+)|(#//w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
+    //导入外部库
+    NSArray *matchArray = [text componentsMatchedByRegex:regex];
+    //得到@user，＃话题＃，http：／／
+    for (NSString *link in matchArray) {
+        //拥有某前缀时
+        NSString *reply = nil;
+        if ([link hasPrefix:@"@"]) {
+            reply = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",link,link];
+        } else if ([link hasPrefix:@"http"]) {
+            reply = [NSString stringWithFormat:@"<a href='http://%@'>%@</a>",link,link];
+        } else if ([link hasPrefix:@"#"]) {
+           reply = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",link,link];
+        }
+        if (reply != nil) {
+            NSLog(@"------------%@",reply);
+            NSLog(@"------------%@",link);
+            NSRange allOfStr = NSMakeRange(0, [_parseLink length]);
+            text = [text stringByReplacingOccurrencesOfString:link withString:reply options:0 range:allOfStr];
+            //text = [text stringByReplacingOccurrencesOfString:link withString:reply];
+        }
+        
+    }
+  
+    [_parseLink appendString:text];
+    
+}
+
 //----------------展示数据，设置布局
+//layoutSubviews有可能会被调用多次，[self setneeddisplay]也会调用到｀这里｀
 - (void)layoutSubviews {
     [super layoutSubviews];
     
     //获取字体大小
     float fontSize = [WeiboView getFontSize:self.isDetail isRepost:self.isRepost];
     _textLabel.font = [UIFont systemFontOfSize:fontSize];
-    _textLabel.text = _weiboModel.text;
+    [self parseLink];
+    _textLabel.text = [NSString stringWithString:_parseLink];
+//    NSLog(@"+++++++++%d",_parseLink.length);
     //文本内容尺寸
     CGSize textSize = _textLabel.optimumSize;
     
