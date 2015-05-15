@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _initView];
-        _parseLink = [NSMutableString string];
+        _parseLink = [[NSMutableString string]retain];
     }
     return self;
 }
@@ -111,8 +111,10 @@
         }
         
     }
-  
-    [_parseLink appendString:text];
+    if (text != nil) {
+        [_parseLink appendString:text];
+
+    }
     
 }
 
