@@ -11,7 +11,8 @@
 #import "WeiboModel.h"
 #import "UIImageView+WebCache.h"
 #import "ThemeImageView.h"
-#import "RegexKitLite.h"
+#import "RegexKitLite.h" //处理正则
+#import "NSString+URLEncoding.h"//处理中文
 #define LIST_FONT   14.0f           //列表中文本字体
 #define LIST_REPOST_FONT  13.0f;    //列表中转发的文本字体
 #define DETAIL_FONT  18.0f          //详情的文本字体
@@ -86,9 +87,17 @@
 //解析超链接
 - (void) parseLink {
     [_parseLink setString:@""];
+    
+    //
+    if (_isRepost) {
+        NSString * nickName = _weiboModel.user.screen_name;
+        NSString *enco = [nickName URLEncodedString];
+        [_parseLink appendFormat:@"<a href='user://%@'>%@</a>:",enco,nickName];
+    }
+    
     NSString *text = _weiboModel.text;
     //正则表达式
-    NSString *regex = @"(@//w+)|(#//w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
+    NSString *regex = @"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
     //导入外部库
     NSArray *matchArray = [text componentsMatchedByRegex:regex];
     //得到@user，＃话题＃，http：／／
@@ -96,18 +105,15 @@
         //拥有某前缀时
         NSString *reply = nil;
         if ([link hasPrefix:@"@"]) {
-            reply = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",link,link];
+            //使用第三方库处理中文乱码问题
+            reply = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[link URLEncodedString],link];
         } else if ([link hasPrefix:@"http"]) {
-            reply = [NSString stringWithFormat:@"<a href='http://%@'>%@</a>",link,link];
+            reply = [NSString stringWithFormat:@"<a href='%@'>%@</a>",link,link];
         } else if ([link hasPrefix:@"#"]) {
-           reply = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",link,link];
+           reply = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[link URLEncodedString],link];
         }
         if (reply != nil) {
-            NSLog(@"------------%@",reply);
-            NSLog(@"------------%@",link);
-            NSRange allOfStr = NSMakeRange(0, [_parseLink length]);
-            text = [text stringByReplacingOccurrencesOfString:link withString:reply options:0 range:allOfStr];
-            //text = [text stringByReplacingOccurrencesOfString:link withString:reply];
+            text = [text stringByReplacingOccurrencesOfString:link withString:reply];
         }
         
     }
@@ -160,6 +166,13 @@
     } else {
         _repostView.hidden = YES;
     }
+    //   -- 转发视图微博背景－－
+    if (self.isRepost) {
+        _repostBackgroundImage.frame = self.bounds;
+        _repostBackgroundImage.hidden = NO;
+    } else {
+        _repostBackgroundImage.hidden = YES;
+    }
 
 //   -- 图片视图微博内容－－
     NSString *picName = _weiboModel.thumbnailImage;
@@ -173,13 +186,7 @@
     }
     
     
-//   -- 转发视图微博背景－－
-    if (self.isRepost) {
-        _repostBackgroundImage.frame = self.bounds;
-        _repostBackgroundImage.hidden = NO;
-    } else {
-        _repostBackgroundImage.hidden = YES;
-    }
+
 }
 
 + (CGFloat)getFontSize:(BOOL)isDetail isRepost:(BOOL)isRepost {
@@ -228,7 +235,7 @@
     //如果字符串长的会影响性能
     if (picName != nil&&![picName isEqualToString:@""]) {
         //加上10的间隙
-        height += (80+10);
+        height += (80+30);
     }
     
     //----------------计算转发微博高度－－－－－－－－－
@@ -239,7 +246,7 @@
         height += relheight;
     }
 
-    if (isRepost == YES) {
+    if (isRepost) {
         height += 50;
     }
     
@@ -248,7 +255,18 @@
 
 #pragma mark -- delegate
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url {
-    
+    NSString *urlString = [url absoluteString];
+    if ([urlString hasPrefix:@"user"]) {
+        NSString *urlHost = [url host];
+        urlHost = [urlHost URLDecodedString];//
+        NSLog(@"user:%@",urlHost);
+    } else if ([urlString hasPrefix:@"http"]) {
+        NSLog(@"connection::%@",url);
+    } else if ([urlString hasPrefix:@"topic"]) {
+        NSString *urlHost = [url host];
+        urlHost = [urlHost URLDecodedString];//
+        NSLog(@"topic:%@",urlHost);
+    }
 }
 
 @end

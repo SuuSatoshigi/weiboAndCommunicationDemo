@@ -358,12 +358,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "suuweibo/WeiboView.m"
-            timestampString = "453272748.717412"
+            timestampString = "453475444.196785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-_parseLink"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-parseLink"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
