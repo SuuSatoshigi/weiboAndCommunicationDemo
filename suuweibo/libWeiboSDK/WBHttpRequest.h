@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+
 #pragma mark - WBHttpRequest and WBHttpRequestDelegate
 
 @class WBHttpRequest;
@@ -71,6 +73,8 @@
     NSURLConnection                 *connection;
     NSMutableData                   *responseData;
 }
+
+
 
 /**
  用户自定义请求地址URL
@@ -171,6 +175,10 @@ typedef void (^WBRequestHandler)(WBHttpRequest *httpRequest,
                            params:(NSDictionary *)params
                             queue:(NSOperationQueue*)queue
             withCompletionHandler:(WBRequestHandler)handler;
+
+
+
+
 
 
 /**

@@ -249,7 +249,7 @@
     if (isRepost) {
         height += 50;
     }
-    
+    [textLabel release];
     return height;
 }
 

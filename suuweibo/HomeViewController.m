@@ -10,8 +10,8 @@
 #import "AppDelegate.h"
 #import "CONSTS.h"
 #import "WeiboModel.h"
-#import "WeiboCell.h"
-#import "WeiboView.h"
+#import "WeiboTableView.h"
+
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
 @end
@@ -41,8 +41,10 @@
     
     NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
    
-    NSLog(@"++++%@",[[NSUserDefaults standardUserDefaults] objectForKey:kThemeName]);
-    NSLog(@"------%@",accessToken);
+    _tableView1 = [[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-20-49-44) style:UITableViewStylePlain];
+    _tableView1.eventDelegate = self;
+    [self.view addSubview:_tableView1];
+    
     //判断是否登录微博了
     if (accessToken.length != 0) {
         [self loadData];
@@ -52,7 +54,6 @@
 #pragma mark -- load data
 - (void)loadData {
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
-    NSLog(@"%@",url);
     [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
                                       url:url
                                httpMethod:@"GET"
@@ -61,24 +62,61 @@
                                   withTag:nil];
 }
 
+//下拉更新数据
+- (void)pullDownData {
+    if (self.topWeiboID.length == 0) {
+        NSLog(@"problem");
+        return ;
+    }
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.topWeiboID,@"since_id", nil];
+    NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
+    
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken] url:url httpMethod:@"GET" params:param queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest,id result,NSError *error) {
+        NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]);
+        NSLog(@"%@",result);
+        NSLog(@"%@",httpRequest);
+        NSLog(@"%@",error);
+        [self pullDownDataFinish:result h:httpRequest];
+    }];//block有可能会造成循环引用，所以要release掉，但是我看不到源码所以就不release－－可能调用的代码已经release了
+}
+
+- (void)pullDownDataFinish:(id)result h:(WBHttpRequest *)httpRequest{
+    NSLog(@"%@",result);
+    NSLog(@"%@",httpRequest);
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+    NSArray *statuse = [dic objectForKey:@"statuses"];
+    //这个方法返回一个添加了autorelease的对象
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:statuse.count];
+    for (NSDictionary *statusDic in statuse) {
+        WeiboModel *weiboModel = [[WeiboModel alloc] initWithDataDic:statusDic];
+        [array addObject:weiboModel];
+        //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
+        [weiboModel release];
+    }
+    
+    if (array.count > 0) {
+        WeiboModel *top = [array objectAtIndex:0];
+        self.topWeiboID = [top.weiboId stringValue];
+    }
+    
+    //把旧的微博数组追加到新的微博数组后面
+    [array addObjectsFromArray:self.weibo];
+    self.weibo = array;
+    self.tableView1.data = array;
+    
+    
+    //刷新
+    [self.tableView1 reloadData];
+    //弹回下拉
+    [self.tableView1 doneLoadingTableViewData];
+    
+    //更新微博数量
+    int updateCount = [statuse count];
+    NSLog(@"number of new weibo :%d",updateCount);
+}
 
 #pragma mark -
 #pragma WBHttpRequestDelegate
-//- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
-//    
-//}
-//retain和assign的区别是这个自动生成的代码是否有release和retain
-//retain是有这两个的，而assgin是没有的
-//- (void)setShareButton:(UIButton *)shareButton{
-//    if (shareButton != _shareButton) {
-//        [_shareButton release];
-//        _shareButton = nil;
-//        _shareButton = [shareButton retain];
-//        
-//    }
-//}
-
-
 //网络加载完成
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result
 {
@@ -92,21 +130,17 @@
         //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
         [weiboModel release];
     }
-    self.data = weibo;
+    self.tableView1.data = weibo;
+    self.weibo = weibo;
+    
+    //担心会越界所以判断一下
+    if (weibo.count > 0) {
+        WeiboModel *topWeibo = [weibo objectAtIndex:0];
+        self.topWeiboID = [topWeibo.weiboId stringValue];
+    }
     
     //刷新tableview
-    [self.tableView reloadData];
-//    NSString *title = nil;
-//    UIAlertView *alert = nil;
-//
-//    title = NSLocalizedString(@"收到网络回调", nil);
-//    alert = [[UIAlertView alloc] initWithTitle:title
-//                                       message:[NSString stringWithFormat:@"%@",result]
-//                                      delegate:nil
-//                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
-//                             otherButtonTitles:nil];
-//    [alert show];
-//    [alert release];
+    [self.tableView1 reloadData];
 }
 
 //网络加载失败
@@ -123,6 +157,17 @@
                              otherButtonTitles:nil];
     [alert show];
     [alert release];
+}
+
+#pragma mark - delegate
+//下拉
+- (void)pullDown:(BaseTableView *)tableView {
+    [self pullDownData];
+}
+
+//选中
+- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"choose");
 }
 
 #pragma mark - actions
@@ -147,32 +192,7 @@
     [self removeWeiboAuth:self.myAppDelegate];
 }
 
-#pragma mark --delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identify = @"weiboCell";
-    WeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
-    if (cell == nil) {
-        cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify] autorelease];
-    }
-    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
-    cell.weibo = weibo;
-    return cell;
-}
-
-//不能使用创建cell对象的方法获得参数，因为会产生死循环
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
-    //weibocell的子视图都不是转发视图，这个高度仅仅是weibo视图的高度，不是cell的高度
-    float height = [WeiboView getWeiboViewHeight:weibo isRepost:NO isDetail:NO];
-    height += 50;
     
-    return height;
-}
-
 #pragma Internal Method
 
 - (WBMessageObject *)messageToShare

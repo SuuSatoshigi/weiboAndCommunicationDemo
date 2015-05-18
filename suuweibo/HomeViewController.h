@@ -7,16 +7,18 @@
 //
 
 #import "BaseViewController.h"
+#import "WeiboTableView.h"
 
-@interface HomeViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,WBHttpRequestDelegate>
+@interface HomeViewController : BaseViewController<WBHttpRequestDelegate,UITableViewEventDelagate>
 @property (nonatomic, retain) UIButton *shareButton;
 @property (nonatomic, retain) UISwitch *textSwitch;
 @property (nonatomic, retain) UISwitch *imageSwitch;
 @property (nonatomic, retain) UISwitch *mediaSwitch;
-//
 
-@property (retain, nonatomic) NSArray *data;
+//设置成property可以自动release
+@property(nonatomic, copy)NSString *topWeiboID;//因为是string所以用copy
 
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property(retain, nonatomic) WeiboTableView *tableView1;
 
+@property(nonatomic, retain)NSMutableArray *weibo;
 @end
