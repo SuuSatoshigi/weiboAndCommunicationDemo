@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "WeiboSDK.h"
 #import "AppDelegate.h"
-@interface BaseViewController : UIViewController
 
+@class MBProgressHUD;
+@interface BaseViewController : UIViewController{
+    UIView *_loadView;
+}
+
+@property (nonatomic, retain)MBProgressHUD *hud;
 - (AppDelegate *)myAppDelegate;
 - (void)removeWeiboAuth:(AppDelegate *) myAppDelegate;
 - (void)saveWeiboAuth:(AppDelegate *) myAppDelegate;
+
+//首页加载提示
+- (void)showLoading:(BOOL)show;
+- (void)showHud:(NSString *)title isDim:(BOOL)isDim;
+- (void)hiddenHud;
 @end

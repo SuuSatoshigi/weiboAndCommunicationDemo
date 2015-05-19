@@ -16,4 +16,8 @@
 + (CGRect)setOriginXY:(CGRect)frame sendX:(CGFloat)x sendY:(CGFloat)y;
 
 + (CGSize) ScreenSize;
+
++ (CGFloat) ScreenHeight;
+
++ (CGFloat) ScreenWidth;
 @end

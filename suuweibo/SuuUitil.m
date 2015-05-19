@@ -33,5 +33,11 @@
     return [[UIScreen mainScreen] bounds].size;
 }
 
++ (CGFloat) ScreenHeight{
+    return [[UIScreen mainScreen] bounds].size.height;
+}
 
++ (CGFloat) ScreenWidth{
+    return [[UIScreen mainScreen] bounds].size.width;
+}
 @end

@@ -48,15 +48,20 @@
     _tableView1 = [[WeiboTableView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-20-49-44) style:UITableViewStylePlain];
     _tableView1.eventDelegate = self;
     [self.view addSubview:_tableView1];
-    
+    //没有数据前隐藏
+    _tableView1.hidden = YES;
     //判断是否登录微博了
     if (accessToken.length != 0) {
+        
         [self loadData];
     }
 }
 
 #pragma mark -- load data
 - (void)loadData {
+    //显示加载提示
+    [super showHud:@"loading" isDim:NO];
+//    [super showLoading:YES];
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
     [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
                                       url:url
@@ -160,7 +165,7 @@
 
 - (void)loadUnReadData {
     NSString *url = @"https://rm.api.weibo.com/2/remind/unread_count.json";
-    NSLog(@"%@",url);
+
     [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
                                       url:url
                                httpMethod:@"GET"
@@ -173,6 +178,11 @@
 //网络加载完成
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result
 {
+    //隐藏加载提示
+//    [super showLoading:NO];
+    [super hiddenHud];
+    
+    self.tableView1.hidden = NO;
     if (request.tag.length == 0) {
         return ;
     }

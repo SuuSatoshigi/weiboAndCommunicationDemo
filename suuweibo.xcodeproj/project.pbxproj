@@ -69,6 +69,8 @@
 		E62B2DC01B0A442B00E5322E /* SuuUitil.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DBF1B0A442B00E5322E /* SuuUitil.m */; };
 		E62B2DC21B0A4BF600E5322E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62B2DC11B0A4BF600E5322E /* AudioToolbox.framework */; };
 		E62B2DC41B0A500E00E5322E /* msgcome.wav in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DC31B0A500E00E5322E /* msgcome.wav */; };
+		E62B2DC91B0AF0CA00E5322E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DC61B0AF0CA00E5322E /* 37x-Checkmark.png */; };
+		E62B2DCA1B0AF0CA00E5322E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DC81B0AF0CA00E5322E /* MBProgressHUD.m */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -197,6 +199,9 @@
 		E62B2DBF1B0A442B00E5322E /* SuuUitil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuuUitil.m; sourceTree = "<group>"; };
 		E62B2DC11B0A4BF600E5322E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E62B2DC31B0A500E00E5322E /* msgcome.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgcome.wav; sourceTree = "<group>"; };
+		E62B2DC61B0AF0CA00E5322E /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		E62B2DC71B0AF0CA00E5322E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E62B2DC81B0AF0CA00E5322E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -263,6 +268,7 @@
 		110E6FB21AF355E6002DFFB7 /* opensource */ = {
 			isa = PBXGroup;
 			children = (
+				E62B2DC51B0AF0CA00E5322E /* MBProgressHUD */,
 				E62B2DA51B08E4F800E5322E /* EGOTableViewPullRefresh */,
 				E62B2D9F1B07710100E5322E /* NSString+URLEncoding.h */,
 				E62B2DA01B07710100E5322E /* NSString+URLEncoding.m */,
@@ -530,6 +536,16 @@
 			path = EGOTableViewPullRefresh;
 			sourceTree = "<group>";
 		};
+		E62B2DC51B0AF0CA00E5322E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E62B2DC61B0AF0CA00E5322E /* 37x-Checkmark.png */,
+				E62B2DC71B0AF0CA00E5322E /* MBProgressHUD.h */,
+				E62B2DC81B0AF0CA00E5322E /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		E665C3011AF39364002D8F20 /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +676,7 @@
 				E62B2DB01B08E4F800E5322E /* blueArrow.png in Resources */,
 				E62B2DAF1B08E4F800E5322E /* blackArrow@2x.png in Resources */,
 				317A670C1AECBEFA004F85BB /* HomeViewController.xib in Resources */,
+				E62B2DC91B0AF0CA00E5322E /* 37x-Checkmark.png in Resources */,
 				E62B2DAE1B08E4F800E5322E /* blackArrow.png in Resources */,
 				317A67161AECC079004F85BB /* ProfileViewController.xib in Resources */,
 				E6BBCE7E1AF9E6D400257329 /* ThemeViewController.xib in Resources */,
@@ -722,6 +739,7 @@
 				E62B2D9C1B04484300E5322E /* RegexKitLite.m in Sources */,
 				317A66D21AEC946E004F85BB /* RTLabel.m in Sources */,
 				E6BBCE831AFA605600257329 /* ThemeImageView.m in Sources */,
+				E62B2DCA1B0AF0CA00E5322E /* MBProgressHUD.m in Sources */,
 				E62B2D931B00750D00E5322E /* WeiboCell.m in Sources */,
 				317A66E21AEC9479004F85BB /* SDImageCache.m in Sources */,
 				317A66FB1AECBB48004F85BB /* MainViewController.m in Sources */,
