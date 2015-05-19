@@ -49,7 +49,7 @@
     
     //创建微博试图
     float h = [WeiboView getWeiboViewHeight:self.weiboModel isRepost:NO isDetail:YES];
-    _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10, _userBarView.frame.origin.y+_userBarView.frame.size.height+10, [SuuUitil ScreenWidth], h)];
+    _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10, _nickLabel.frame.origin.y+_nickLabel.frame.size.height+10, [SuuUitil ScreenWidth], h)];
     _weiboView.isDetail = YES;
     _weiboView.weiboModel = _weiboModel;
     

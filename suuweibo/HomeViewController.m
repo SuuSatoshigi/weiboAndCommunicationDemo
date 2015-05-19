@@ -300,7 +300,7 @@
     NSLog(@"choose");
     
     WeiboModel *weibo = [self.weibo objectAtIndex:indexPath.row];
-    DetailViewController *detail = [[[DetailViewController alloc] init] retain];
+    DetailViewController *detail = [[[DetailViewController alloc] initWithNibName:nil bundle:nil] retain];
     detail.weiboModel = weibo;
     [self.navigationController pushViewController:detail animated:YES];
     [detail release];
