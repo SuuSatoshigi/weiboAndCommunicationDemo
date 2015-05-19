@@ -60,22 +60,4 @@
     self.viewControllers = viewControllers;
 }
 
-
-
-//网络加载失败
-- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
-{
-    NSString *title = nil;
-    UIAlertView *alert = nil;
-    
-    title = NSLocalizedString(@"请求异常", nil);
-    alert = [[UIAlertView alloc] initWithTitle:title
-                                       message:[NSString stringWithFormat:@"%@",error]
-                                      delegate:nil
-                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                             otherButtonTitles:nil];
-    [alert show];
-    [alert release];
-}
-
 @end

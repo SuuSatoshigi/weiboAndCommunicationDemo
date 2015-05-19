@@ -125,6 +125,8 @@
 
 }
 
+
+
 - (void)setState:(EGOPullRefreshState)aState{
 	
 	switch (aState) {
