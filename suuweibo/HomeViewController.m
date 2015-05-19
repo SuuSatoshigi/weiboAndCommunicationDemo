@@ -12,8 +12,8 @@
 #import "WeiboModel.h"
 #import "WeiboTableView.h"
 #import "UIFactory.h"
-#import "SuuUitil.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "DetailViewController.h"
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
 @end
@@ -181,7 +181,6 @@
     //隐藏加载提示
 //    [super showLoading:NO];
     [super hiddenHud];
-    
     self.tableView1.hidden = NO;
     if (request.tag.length == 0) {
         return ;
@@ -299,6 +298,12 @@
 //选中
 - (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"choose");
+    
+    WeiboModel *weibo = [self.weibo objectAtIndex:indexPath.row];
+    DetailViewController *detail = [[[DetailViewController alloc] init] retain];
+    detail.weiboModel = weibo;
+    [self.navigationController pushViewController:detail animated:YES];
+    [detail release];
 }
 
 #pragma mark - actions

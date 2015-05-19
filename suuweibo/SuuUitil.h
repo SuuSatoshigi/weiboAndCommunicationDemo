@@ -20,4 +20,10 @@
 + (CGFloat) ScreenHeight;
 
 + (CGFloat) ScreenWidth;
+
++ (CGRect)setHeight:(CGRect)frame sendHeight:(CGFloat)height;
+
++ (CGRect)setWidth:(CGRect)frame sendWidth:(CGFloat)width;
+
++ (CGRect)setHeightAndWidth:(CGRect)frame sendHeight:(CGFloat)height sendWidth:(CGFloat)width;
 @end

@@ -18,3 +18,5 @@
 
 #import "WXHLGlobalUICommon.h"
 #import "CONSTS.h"
+
+#import "SuuUitil.h"

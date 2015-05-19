@@ -29,6 +29,25 @@
     return myFrame;
 }
 
++ (CGRect)setHeight:(CGRect)frame sendHeight:(CGFloat)height{
+    CGRect myFrame = frame;
+    myFrame.size.height = height;
+    return myFrame;
+}
+
++ (CGRect)setWidth:(CGRect)frame sendWidth:(CGFloat)width{
+    CGRect myFrame = frame;
+    myFrame.size.width = width;
+    return myFrame;
+}
+
++ (CGRect)setHeightAndWidth:(CGRect)frame sendHeight:(CGFloat)height sendWidth:(CGFloat)width{
+    CGRect myFrame = frame;
+    myFrame.size.height = height;
+    myFrame.size.width = width;
+    return myFrame;
+}
+
 + (CGSize) ScreenSize{
     return [[UIScreen mainScreen] bounds].size;
 }

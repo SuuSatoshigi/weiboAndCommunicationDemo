@@ -24,4 +24,5 @@
 - (void)showLoading:(BOOL)show;
 - (void)showHud:(NSString *)title isDim:(BOOL)isDim;
 - (void)hiddenHud;
+- (void)showHudComplete:(NSString *)title;
 @end

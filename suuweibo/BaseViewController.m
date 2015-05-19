@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import "UIFactory.h"
-#import "SuuUitil.h"
 #import "MBProgressHUD.h"
 @interface BaseViewController ()
 
@@ -129,5 +128,13 @@
 }
 - (void)hiddenHud {
     [self.hud hide:YES];
+}
+- (void)showHudComplete:(NSString *)title {
+    self.hud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+    self.hud.mode = MBProgressHUDModeCustomView;
+    if (title.length > 0) {
+        self.hud.labelText = title;
+    }
+    [self.hud hide:YES afterDelay:1];
 }
 @end
