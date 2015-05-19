@@ -32,6 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _initView];
+        //全局属性的对象不能交给自动释放池管理
         _parseLink = [[NSMutableString string]retain];
     }
     return self;
@@ -138,6 +139,8 @@
     //文本内容尺寸
     CGSize textSize = _textLabel.optimumSize;
     
+    NSLog(@"%@",_weiboModel.text);
+    
 //   -- 子视图微博内容－－
     _textLabel.frame = CGRectMake(0, 0, self.frame.size.width, textSize.height);
     
@@ -173,17 +176,31 @@
     } else {
         _repostBackgroundImage.hidden = YES;
     }
+    
+    //   -- 图片视图微博内容－－
 
-//   -- 图片视图微博内容－－
-    NSString *picName = _weiboModel.thumbnailImage;
-    //如果字符串长的会影响性能
-    if (picName != nil&& ![picName isEqualToString:@""]) {
-        _image.hidden = NO;
-        _image.frame = CGRectMake(10, CGRectGetMaxY(_textLabel.frame)+10, 70, 80);
-        [_image setImageWithURL:[NSURL URLWithString:picName]];
+    if (self.isDetail) {
+        NSString *midPic = _weiboModel.bmiddleImage;
+        //如果字符串长的会影响性能
+        if (midPic != nil&& ![midPic isEqualToString:@""]) {
+            _image.hidden = NO;
+            _image.frame = CGRectMake(10, CGRectGetMaxY(_textLabel.frame)+10, 280, 80);
+            [_image setImageWithURL:[NSURL URLWithString:midPic]];
+        } else {
+            _image.hidden = YES;
+        }
     } else {
-        _image.hidden = YES;
+        NSString *picName = _weiboModel.thumbnailImage;
+        //如果字符串长的会影响性能
+        if (picName != nil&& ![picName isEqualToString:@""]) {
+            _image.hidden = NO;
+            _image.frame = CGRectMake(10, CGRectGetMaxY(_textLabel.frame)+10, 70, 80);
+            [_image setImageWithURL:[NSURL URLWithString:picName]];
+        } else {
+            _image.hidden = YES;
+        }
     }
+   
     
     
 
@@ -231,12 +248,21 @@
     height += textLabel.optimumSize.height;
     
     //----------------计算微博图片高度－－－－－－－－－
-    NSString *picName = weibo.thumbnailImage;
-    //如果字符串长的会影响性能
-    if (picName != nil&&![picName isEqualToString:@""]) {
-        //加上10的间隙
-        height += (80+30);
+    if (isdetail) {
+        NSString *midPic = weibo.bmiddleImage;
+        //如果字符串长的会影响性能
+        if (midPic != nil&& ![midPic isEqualToString:@""]) {
+            height += (200+10);
+        }
+    } else {
+        NSString *picName = weibo.thumbnailImage;
+        //如果字符串长的会影响性能
+        if (picName != nil&&![picName isEqualToString:@""]) {
+            //加上10的间隙
+            height += (80+30);
+        }
     }
+    
     
     //----------------计算转发微博高度－－－－－－－－－
     WeiboModel *reWeibo = weibo.relWeibo;
@@ -250,6 +276,7 @@
         height += 50;
     }
     [textLabel release];
+    
     return height;
 }
 

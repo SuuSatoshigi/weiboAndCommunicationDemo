@@ -34,22 +34,36 @@
     UIView *tableleHeaderView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, [SuuUitil ScreenWidth], 0)] retain];
     tableleHeaderView.backgroundColor = [UIColor clearColor];
     
+    //头像
     NSString *userImage = _weiboModel.user.profile_image_url;
     self.userImageView.layer.cornerRadius = 5;
     //设置超过子图层的部分裁减掉
     //UI框架中使用的方法
     self.userImageView.layer.masksToBounds = YES;
     [self.userImageView setImageWithURL:[NSURL URLWithString:userImage]];
+    
+    //昵称
     self.nickLabel.text = _weiboModel.user.screen_name;
     [tableleHeaderView addSubview:self.userBarView];
-    tableleHeaderView.frame = [SuuUitil setHeight:tableleHeaderView.frame sendHeight:60];
+    tableleHeaderView.frame = [SuuUitil setHeight:tableleHeaderView.frame sendHeight:tableleHeaderView.frame.size.height+60];
     
-    tableleHeaderView.translatesAutoresizingMaskIntoConstraints = NO;
+    //创建微博试图
+    float h = [WeiboView getWeiboViewHeight:self.weiboModel isRepost:NO isDetail:YES];
+    _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10, _userBarView.frame.origin.y+_userBarView.frame.size.height+10, [SuuUitil ScreenWidth], h)];
+    _weiboView.isDetail = YES;
+    _weiboView.weiboModel = _weiboModel;
     
-//    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-//    pricesView.view.translatesAutoresizingMaskIntoConstraints = NO; // you might get it to work without doing this line
+    [tableleHeaderView addSubview:_weiboView];
+    tableleHeaderView.frame = [SuuUitil setHeight:tableleHeaderView.frame sendHeight:tableleHeaderView.frame.size.height+h+10];
     
+    NSLog(@"1.%f",tableleHeaderView.frame.origin.x);
+    NSLog(@"2.%f",tableleHeaderView.frame.origin.y);
+    NSLog(@"3.%f",tableleHeaderView.frame.size.height);
+    NSLog(@"4.%f",tableleHeaderView.frame.size.width);
+
     self.tableView.tableHeaderView = tableleHeaderView;
+    
+   
     [tableleHeaderView release];
     
 }
