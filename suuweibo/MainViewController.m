@@ -13,7 +13,8 @@
 #import "DiscoverViewController.h"
 #import "MoreViewController.h"
 #import "BaseNavigationController.h"
-
+#import "UIFactory.h"
+#import "SuuUitil.h"
 @interface MainViewController ()
 
 @end
@@ -32,14 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initViewController];
-    // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 //初始化子控制器
 - (void)_initViewController {
@@ -60,5 +61,21 @@
 }
 
 
+
+//网络加载失败
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
+{
+    NSString *title = nil;
+    UIAlertView *alert = nil;
+    
+    title = NSLocalizedString(@"请求异常", nil);
+    alert = [[UIAlertView alloc] initWithTitle:title
+                                       message:[NSString stringWithFormat:@"%@",error]
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                             otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
 
 @end

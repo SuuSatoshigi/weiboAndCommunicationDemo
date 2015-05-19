@@ -66,6 +66,9 @@
 		E62B2DB31B08E4F800E5322E /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DAC1B08E4F800E5322E /* grayArrow.png */; };
 		E62B2DB41B08E4F800E5322E /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DAD1B08E4F800E5322E /* grayArrow@2x.png */; };
 		E62B2DB71B08EA2700E5322E /* WeiboTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DB61B08EA2700E5322E /* WeiboTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E62B2DC01B0A442B00E5322E /* SuuUitil.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DBF1B0A442B00E5322E /* SuuUitil.m */; };
+		E62B2DC21B0A4BF600E5322E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62B2DC11B0A4BF600E5322E /* AudioToolbox.framework */; };
+		E62B2DC41B0A500E00E5322E /* msgcome.wav in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DC31B0A500E00E5322E /* msgcome.wav */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -190,6 +193,10 @@
 		E62B2DAD1B08E4F800E5322E /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
 		E62B2DB51B08EA2700E5322E /* WeiboTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTableView.h; sourceTree = "<group>"; };
 		E62B2DB61B08EA2700E5322E /* WeiboTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTableView.m; sourceTree = "<group>"; };
+		E62B2DBE1B0A442B00E5322E /* SuuUitil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuuUitil.h; sourceTree = "<group>"; };
+		E62B2DBF1B0A442B00E5322E /* SuuUitil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuuUitil.m; sourceTree = "<group>"; };
+		E62B2DC11B0A4BF600E5322E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E62B2DC31B0A500E00E5322E /* msgcome.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = msgcome.wav; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -227,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E62B2DC21B0A4BF600E5322E /* AudioToolbox.framework in Frameworks */,
 				E62B2D9E1B0449E800E5322E /* libicucore.dylib in Frameworks */,
 				317A66ED1AEC962B004F85BB /* Foundation.framework in Frameworks */,
 				317A66EB1AEC9609004F85BB /* CoreGraphics.framework in Frameworks */,
@@ -267,6 +275,7 @@
 		317A668B1AEC8EB7004F85BB = {
 			isa = PBXGroup;
 			children = (
+				E62B2DC11B0A4BF600E5322E /* AudioToolbox.framework */,
 				E62B2D9D1B0449E800E5322E /* libicucore.dylib */,
 				31BB9ABF1AF62E5300C30416 /* CoreTelephony.framework */,
 				31BB9ABD1AF62E3900C30416 /* ImageIO.framework */,
@@ -317,6 +326,7 @@
 		317A66971AEC8EB7004F85BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E62B2DC31B0A500E00E5322E /* msgcome.wav */,
 				E6BBCE7F1AFA1DCB00257329 /* Skins */,
 				E6BBCE711AF7D8AA00257329 /* thenmeManager */,
 				110E6FB21AF355E6002DFFB7 /* opensource */,
@@ -359,6 +369,8 @@
 				317A66C01AEC92D2004F85BB /* UIViewExt.h */,
 				317A66BE1AEC92D2004F85BB /* UIUtils.h */,
 				31BB9AB81AF60CBB00C30416 /* CONSTS.h */,
+				E62B2DBE1B0A442B00E5322E /* SuuUitil.h */,
+				E62B2DBF1B0A442B00E5322E /* SuuUitil.m */,
 			);
 			name = uitil;
 			sourceTree = "<group>";
@@ -654,6 +666,7 @@
 				E6BBCE761AF7D95200257329 /* theme.plist in Resources */,
 				E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */,
 				110E6FB11AF10C89002DFFB7 /* RightViewController.xib in Resources */,
+				E62B2DC41B0A500E00E5322E /* msgcome.wav in Resources */,
 				317A67111AECC015004F85BB /* MessageViewController.xib in Resources */,
 				317A671B1AECC245004F85BB /* DiscoverViewController.xib in Resources */,
 			);
@@ -698,6 +711,7 @@
 				E62B2DA41B08E48F00E5322E /* BaseTableView.m in Sources */,
 				317A66FF1AECBCEB004F85BB /* BaseViewController.m in Sources */,
 				317A66E51AEC9479004F85BB /* UIButton+WebCache.m in Sources */,
+				E62B2DC01B0A442B00E5322E /* SuuUitil.m in Sources */,
 				E6BBCE791AF906F300257329 /* themeButton.m in Sources */,
 				E6BBCE8F1AFB7AC400257329 /* UserModel.m in Sources */,
 				317A67021AECBD7B004F85BB /* BaseNavigationController.m in Sources */,
@@ -840,7 +854,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -866,7 +880,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

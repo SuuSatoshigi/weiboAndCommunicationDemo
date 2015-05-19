@@ -10,7 +10,10 @@
 
 #import "WeiboSDK.h"
 
-@interface MainViewController : UITabBarController<WBHttpRequestDelegate>
+@interface MainViewController : UITabBarController<WBHttpRequestDelegate> {
+    UIImageView *_badgeView;
+    
+}
 
 
 

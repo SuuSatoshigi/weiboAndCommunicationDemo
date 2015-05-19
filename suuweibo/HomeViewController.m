@@ -11,7 +11,9 @@
 #import "CONSTS.h"
 #import "WeiboModel.h"
 #import "WeiboTableView.h"
-
+#import "UIFactory.h"
+#import "SuuUitil.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
 @end
@@ -22,6 +24,8 @@
     if (self) {
         self.title = @"微博";
         self.tabBarItem.image = [UIImage imageNamed:@"clan_topic_normal1"];
+        //定时器，每60s读一次
+        [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(timeerAction:) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -59,8 +63,9 @@
                                httpMethod:@"GET"
                                    params:nil
                                  delegate:self
-                                  withTag:nil];
+                                  withTag:@"load"];
 }
+
 
 //下拉更新数据
 - (void)pullDownData {
@@ -71,55 +76,107 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.topWeiboID,@"since_id", nil];
     NSString *url = @"https://api.weibo.com/2/statuses/home_timeline.json";
     
-    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken] url:url httpMethod:@"GET" params:param queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest,id result,NSError *error) {
-        NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]);
-        NSLog(@"%@",result);
-        NSLog(@"%@",httpRequest);
-        NSLog(@"%@",error);
-        [self pullDownDataFinish:result h:httpRequest];
-    }];//block有可能会造成循环引用，所以要release掉，但是我看不到源码所以就不release－－可能调用的代码已经release了
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+                                      url:url
+                               httpMethod:@"GET"
+                                   params:param
+                                 delegate:self
+                                  withTag:@"update"];
 }
 
-- (void)pullDownDataFinish:(id)result h:(WBHttpRequest *)httpRequest{
-    NSLog(@"%@",result);
-    NSLog(@"%@",httpRequest);
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-    NSArray *statuse = [dic objectForKey:@"statuses"];
-    //这个方法返回一个添加了autorelease的对象
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:statuse.count];
-    for (NSDictionary *statusDic in statuse) {
-        WeiboModel *weiboModel = [[WeiboModel alloc] initWithDataDic:statusDic];
-        [array addObject:weiboModel];
-        //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
-        [weiboModel release];
+//加载ui，显示新微博数量
+- (void)showNewWeiboCount:(int)count {
+    if (barView == nil) {
+        //全局属性要retain一下
+        barView = [[UIFactory createThemeImageView:@"timeline_new_status_background"] retain];
+        UIImage *image = [barView.image stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+        barView.image = image;
+        barView.leftCapWidth = 5;
+        barView.topCapHeight = 5;
+        barView.frame = CGRectMake(5, -40,[SuuUitil ScreenSize].width - 10 , 40);
+        
+       
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.tag = 2015;
+        label.font = [UIFont systemFontOfSize:16.0f];
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:barView];
+        [barView addSubview:label];
+        [label release];
+    }
+    if (count > 0 || true) {
+        //可以避免重复生成可以设置tag值获取
+        UILabel *label = (UILabel *)[barView viewWithTag:2015];
+        label.text = [NSString stringWithFormat:@"更新了%d条微博",count];
+        [label sizeToFit];
+        //坐标值
+        
+ 
+        label.frame = [SuuUitil setOriginXY:label.frame sendX:(barView.frame.size.width - label.frame.size.width)/2 sendY:(barView.frame.size.height - label.frame.size.height)/2];
+        //    这种赋值有问题
+        //    label.frame.origin = CGPointMake((barView.frame.size.width - label.frame.size.width)/2,(barView.frame.size.height - label.frame.size.height)/2);
+        
+        [UIView animateWithDuration:0.6 animations:^{
+            barView.frame = [SuuUitil setOriginY:barView.frame sendY:5];
+            NSLog(@"%lf+++++",barView.frame.origin.y);
+            
+        } completion:^(BOOL finsh){
+            if (finsh) {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDelay:1];
+                [UIView setAnimationDuration:0.6];
+                
+                barView.frame = [SuuUitil setOriginY:barView.frame sendY:-40];
+
+                
+                [UIView commitAnimations];
+            }
+        }];
+        
+        if ([[NSBundle mainBundle] pathForResource:@"msgcome" ofType:@"wav"]) {
+            //播放声音
+            NSString *filePath = [[NSBundle mainBundle] pathForResource:@"msgcome" ofType:@"wav"];
+            //播放声音要先注册
+            NSURL *url = [NSURL fileURLWithPath:filePath];
+            
+            SystemSoundID soundId;
+            AudioServicesCreateSystemSoundID((CFURLRef)url, &soundId);
+            AudioServicesPlaySystemSound(soundId);
+        }
+        
+        
     }
     
-    if (array.count > 0) {
-        WeiboModel *top = [array objectAtIndex:0];
-        self.topWeiboID = [top.weiboId stringValue];
-    }
-    
-    //把旧的微博数组追加到新的微博数组后面
-    [array addObjectsFromArray:self.weibo];
-    self.weibo = array;
-    self.tableView1.data = array;
-    
-    
-    //刷新
-    [self.tableView1 reloadData];
-    //弹回下拉
-    [self.tableView1 doneLoadingTableViewData];
-    
-    //更新微博数量
-    int updateCount = [statuse count];
-    NSLog(@"number of new weibo :%d",updateCount);
 }
 
+
+
+
+#pragma mark   ----action
+- (void)timeerAction:(NSTimer *)timer {
+    [self loadUnReadData];
+}
+
+- (void)loadUnReadData {
+    NSString *url = @"https://rm.api.weibo.com/2/remind/unread_count.json";
+    NSLog(@"%@",url);
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+                                      url:url
+                               httpMethod:@"GET"
+                                   params:nil
+                                 delegate:self
+                                  withTag:@"loadUnRead"];
+}
 #pragma mark -
 #pragma WBHttpRequestDelegate
 //网络加载完成
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result
 {
+    if (request.tag.length == 0) {
+        return ;
+    }
+    
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
     NSArray *statuse = [dic objectForKey:@"statuses"];
     //这个方法返回一个添加了autorelease的对象
@@ -130,17 +187,81 @@
         //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
         [weiboModel release];
     }
-    self.tableView1.data = weibo;
-    self.weibo = weibo;
-    
-    //担心会越界所以判断一下
-    if (weibo.count > 0) {
-        WeiboModel *topWeibo = [weibo objectAtIndex:0];
-        self.topWeiboID = [topWeibo.weiboId stringValue];
+    if ([request.tag isEqualToString:@"load"]) {
+        
+        self.tableView1.data = weibo;
+        self.weibo = weibo;
+        
+        //担心会越界所以判断一下
+        if (weibo.count > 0) {
+            WeiboModel *topWeibo = [weibo objectAtIndex:0];
+            self.topWeiboID = [topWeibo.weiboId stringValue];
+        }
+        //刷新tableview
+        [self.tableView1 reloadData];
+    } else if ([request.tag isEqualToString:@"update"]) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSArray *statuse = [dic objectForKey:@"statuses"];
+        //这个方法返回一个添加了autorelease的对象
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:statuse.count];
+        for (NSDictionary *statusDic in statuse) {
+            WeiboModel *weiboModel = [[WeiboModel alloc] initWithDataDic:statusDic];
+            [array addObject:weiboModel];
+            //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
+            [weiboModel release];
+        }
+        
+        if (array.count > 0) {
+            WeiboModel *top = [array objectAtIndex:0];
+            self.topWeiboID = [top.weiboId stringValue];
+        }
+        
+        //把旧的微博数组追加到新的微博数组后面
+        [array addObjectsFromArray:self.weibo];
+        self.weibo = array;
+        self.tableView1.data = array;
+        
+        
+        //刷新
+        [self.tableView1 reloadData];
+        //弹回下拉
+        [self.tableView1 doneLoadingTableViewData];
+        
+        //更新微博数量
+        int updateCount = [statuse count];
+        NSLog(@"number of new weibo :%d",updateCount);
+        [self showNewWeiboCount:updateCount];
+    } else if ([request.tag isEqualToString:@"loadUnRead"]) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSNumber *statuse = [dic objectForKey:@"status"];
+        NSLog(@"----------%@",statuse);
+        //    if (_badgeView == nil) {
+        //        _badgeView = [UIFactory createThemeImageView:@"main_badge.png"];
+        //        _badgeView.frame = CGRectMake(64-20, [SuuUitil ScreenSize].height-60, 20, 20);
+        //        [self.view addSubview:_badgeView];
+        //
+        //        UILabel *badgeLabel = [[[UILabel alloc] initWithFrame:_badgeView.bounds] retain];
+        //        badgeLabel.textAlignment = NSTextAlignmentCenter;
+        //        badgeLabel.backgroundColor = [UIColor clearColor];
+        //        badgeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+        //        badgeLabel.textColor = [UIColor purpleColor];
+        //        badgeLabel.tag = 100;
+        //        [_badgeView addSubview:badgeLabel];
+        //        [badgeLabel release];
+        //
+        //    }
+        
+        int n = [statuse intValue];
+        if (n > 0) {
+            //         UILabel *badgeLabel = (UILabel *)[_badgeView viewWithTag:100];
+            //        badgeLabel.text = [NSString stringWithFormat:@"%@",statuse];
+            //        _badgeView.hidden = NO;
+            self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%@",statuse];
+        } else {
+            //        _badgeView.hidden = YES;
+            self.tabBarItem.badgeValue = nil;
+        }
     }
-    
-    //刷新tableview
-    [self.tableView1 reloadData];
 }
 
 //网络加载失败

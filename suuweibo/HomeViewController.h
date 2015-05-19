@@ -9,7 +9,10 @@
 #import "BaseViewController.h"
 #import "WeiboTableView.h"
 
-@interface HomeViewController : BaseViewController<WBHttpRequestDelegate,UITableViewEventDelagate>
+@class ThemeImageView;
+@interface HomeViewController : BaseViewController<WBHttpRequestDelegate,UITableViewEventDelagate> {
+    ThemeImageView *barView;
+}
 @property (nonatomic, retain) UIButton *shareButton;
 @property (nonatomic, retain) UISwitch *textSwitch;
 @property (nonatomic, retain) UISwitch *imageSwitch;

@@ -1,4 +1,6 @@
 # suuweibo
-装逼用，
-调教用
-SuuSatoshigi's WEIBO DEMO
+未完成的部分：
+1.主题更换tabar部分
+2.更新微博后的声音
+3.更新微博后的label提示
+
