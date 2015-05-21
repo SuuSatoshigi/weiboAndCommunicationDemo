@@ -68,6 +68,23 @@
     [super viewDidLoad];
     [self loadThemeView];
     // Do any additional setup after loading the view.
+    //可以感应向上向下向左向右
+    UISwipeGestureRecognizer *swip = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipAction:)];
+    //制定手势方向，默认是右划
+    swip.direction = UISwipeGestureRecognizerDirectionRight;
+//    把手势添加到根视图上
+    [self.view addGestureRecognizer:swip];
+    [swip release];
+}
+
+#pragma mark - action
+
+- (void)swipAction:(UISwipeGestureRecognizer *)gesture {
+    if (self.viewControllers.count > 1) {
+        if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
+            [self popViewControllerAnimated:YES];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -57,6 +57,18 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated  {
+    [super  viewWillAppear:animated];
+    //turn on left and right
+    [self.myAppDelegate.menu setEnableGesture:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated  {
+    [super viewWillDisappear:animated];
+    //turn off left and right DDmenu's method
+    [self.myAppDelegate.menu setEnableGesture:NO];
+}
+
 #pragma mark -- load data
 - (void)loadData {
     //显示加载提示

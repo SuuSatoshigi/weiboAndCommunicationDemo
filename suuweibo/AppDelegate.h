@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeiboSDK.h"
+#import "DDMenuController.h"
 @class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -16,6 +17,6 @@
 @property (retain, nonatomic) WBAuthorizeResponse *author;
 //@property (strong, nonatomic) NSString *wbtoken;
 //@property (strong, nonatomic) NSString *wbCurrentUserID;
-
+@property (retain, nonatomic) DDMenuController *menu;
 @end
 

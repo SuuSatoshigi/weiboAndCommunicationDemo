@@ -43,11 +43,11 @@
     RightViewController *rightCtrl = [[RightViewController alloc] init];
     LeftViewController  *leftCtrl = [[LeftViewController alloc] init];
     
-    DDMenuController *menu = [[DDMenuController alloc] initWithRootViewController:_mainCtrl];
-    menu.rightViewController = rightCtrl;
-    menu.leftViewController = leftCtrl;
+    self.menu = [[DDMenuController alloc] initWithRootViewController:_mainCtrl];
+    self.menu.rightViewController = rightCtrl;
+    self.menu.leftViewController = leftCtrl;
     
-    self.window.rootViewController = menu;
+    self.window.rootViewController = self.menu;
     
     [self.window makeKeyAndVisible];
 //不能写
