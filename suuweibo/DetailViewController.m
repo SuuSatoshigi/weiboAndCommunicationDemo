@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "WeiboModel.h"
 #import "WeiboView.h"
+#import "CommentTableView.h"
+#import "CommentModel.h"
 @interface DetailViewController ()
 
 @end
@@ -18,8 +20,11 @@
 @implementation DetailViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"微博正文";
     // Do any additional setup after loading the view from its nib.
     [self _initView];
+    [self loadData];
+    
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -49,17 +54,13 @@
     
     //创建微博试图
     float h = [WeiboView getWeiboViewHeight:self.weiboModel isRepost:NO isDetail:YES];
-    _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10, _nickLabel.frame.origin.y+_nickLabel.frame.size.height+10, [SuuUitil ScreenWidth], h)];
+    NSLog(@"------------tell me why :%lf",h);
+    _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10,[SuuUitil bottom:tableleHeaderView.frame]+10, [SuuUitil ScreenWidth]-15, h)];
     _weiboView.isDetail = YES;
     _weiboView.weiboModel = _weiboModel;
     
     [tableleHeaderView addSubview:_weiboView];
     tableleHeaderView.frame = [SuuUitil setHeight:tableleHeaderView.frame sendHeight:tableleHeaderView.frame.size.height+h+10];
-    
-    NSLog(@"1.%f",tableleHeaderView.frame.origin.x);
-    NSLog(@"2.%f",tableleHeaderView.frame.origin.y);
-    NSLog(@"3.%f",tableleHeaderView.frame.size.height);
-    NSLog(@"4.%f",tableleHeaderView.frame.size.width);
 
     self.tableView.tableHeaderView = tableleHeaderView;
     
@@ -68,15 +69,49 @@
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+#pragma mark -- load data
+- (void)loadData {
+    
+    //显示加载提示
+    [super showHud:@"loading" isDim:NO];
+    //    [super showLoading:YES];
+    NSString *weiboId = [_weiboModel.weiboId stringValue];
+    if (weiboId.length == 0) {
+        return ;
+    }
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObject:weiboId forKey:@"id"];
+    NSString *url = @"https://api.weibo.com/2/comments/show.json";
+    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+                                      url:url
+                               httpMethod:@"GET"
+                                   params:param
+                                 delegate:self
+                                  withTag:@"load"];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+#pragma mark -
+#pragma WBHttpRequestDelegate
+//网络加载完成
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result {
+    [self hiddenHud];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+    NSArray *array = [dic objectForKey:@"comments"];
+    //这个方法返回一个添加了autorelease的对象
+    NSMutableArray *comments = [NSMutableArray arrayWithCapacity:array.count];
+    
+    for (NSDictionary *commentDic in array) {
+        CommentModel *commentModel = [[CommentModel alloc] initWithDataDic:commentDic];
+        [comments addObject:commentModel];
+        //走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
+        [commentModel release];
+    }
+    self.tableView.data = comments;
+    
+    NSLog(@"------------tell me why 2 :%lf",self.tableView.frame.size.height);
+    //刷新
+    [self.tableView reloadData];
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

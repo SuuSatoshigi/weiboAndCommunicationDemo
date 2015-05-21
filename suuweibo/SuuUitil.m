@@ -7,9 +7,9 @@
 //
 
 #import "SuuUitil.h"
-
+#import <QuartzCore/QuartzCore.h>
 @implementation SuuUitil
-
+#pragma mark -- 设置origin xy
 + (CGRect)setOriginX:(CGRect)frame sendX:(CGFloat)x{
     CGRect myFrame = frame;
     myFrame.origin.x = x;
@@ -29,6 +29,7 @@
     return myFrame;
 }
 
+#pragma mark -- 设置size高宽
 + (CGRect)setHeight:(CGRect)frame sendHeight:(CGFloat)height{
     CGRect myFrame = frame;
     myFrame.size.height = height;
@@ -48,6 +49,7 @@
     return myFrame;
 }
 
+#pragma mark -- 屏幕高低
 + (CGSize) ScreenSize{
     return [[UIScreen mainScreen] bounds].size;
 }
@@ -58,5 +60,22 @@
 
 + (CGFloat) ScreenWidth{
     return [[UIScreen mainScreen] bounds].size.width;
+}
+
+#pragma mark -- frame 为要对齐的对象
++ (CGFloat) top:(CGRect)frame{
+    return frame.origin.y;
+}
+
++ (CGFloat) bottom:(CGRect)frame{
+    return frame.origin.y+frame.size.height;
+}
+
++ (CGFloat) right:(CGRect)frame{
+    return frame.origin.x+frame.size.width;
+}
+
++ (CGFloat) left:(CGRect)frame{
+    return frame.origin.x;
 }
 @end

@@ -15,7 +15,8 @@
     
 }
 
-
+//控制tabar是否隐藏
+- (void)showTabbar:(BOOL)show;
 
 
 @end

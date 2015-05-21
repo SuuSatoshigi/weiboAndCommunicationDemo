@@ -8,7 +8,8 @@
 
 #import "UIUtils.h"
 #import <CommonCrypto/CommonDigest.h>
-
+#import "RegexKitLite.h" //处理正则
+#import "NSString+URLEncoding.h"//处理中文
 @implementation UIUtils
 
 + (NSString *)getDocumentsPath:(NSString *)fileName {
@@ -48,4 +49,31 @@
     return text;
 }
 
+//解析超链接
++ (NSString *)parseLink:(NSString *)sendText {
+
+        NSString *text = sendText;
+        //正则表达式
+        NSString *regex = @"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
+        //导入外部库
+        NSArray *matchArray = [text componentsMatchedByRegex:regex];
+        //得到@user，＃话题＃，http：／／
+        for (NSString *link in matchArray) {
+            //拥有某前缀时
+            NSString *reply = nil;
+            if ([link hasPrefix:@"@"]) {
+                //使用第三方库处理中文乱码问题
+                reply = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[link URLEncodedString],link];
+            } else if ([link hasPrefix:@"http"]) {
+                reply = [NSString stringWithFormat:@"<a href='%@'>%@</a>",link,link];
+            } else if ([link hasPrefix:@"#"]) {
+                reply = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[link URLEncodedString],link];
+            }
+            if (reply != nil) {
+                text = [text stringByReplacingOccurrencesOfString:link withString:reply];
+            }
+
+        }
+    return text;
+}
 @end

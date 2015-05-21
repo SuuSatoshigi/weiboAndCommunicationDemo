@@ -75,7 +75,6 @@
 //下拉更新数据
 - (void)pullDownData {
     if (self.topWeiboID.length == 0) {
-        NSLog(@"problem");
         return ;
     }
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.topWeiboID,@"since_id", nil];
@@ -124,7 +123,6 @@
         
         [UIView animateWithDuration:0.6 animations:^{
             barView.frame = [SuuUitil setOriginY:barView.frame sendY:5];
-            NSLog(@"%lf+++++",barView.frame.origin.y);
             
         } completion:^(BOOL finsh){
             if (finsh) {
@@ -238,12 +236,10 @@
         
         //更新微博数量
         int updateCount = [statuse count];
-        NSLog(@"number of new weibo :%d",updateCount);
         [self showNewWeiboCount:updateCount];
     } else if ([request.tag isEqualToString:@"loadUnRead"]) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSNumber *statuse = [dic objectForKey:@"status"];
-        NSLog(@"----------%@",statuse);
         //    if (_badgeView == nil) {
         //        _badgeView = [UIFactory createThemeImageView:@"main_badge.png"];
         //        _badgeView.frame = CGRectMake(64-20, [SuuUitil ScreenSize].height-60, 20, 20);
@@ -297,8 +293,6 @@
 
 //选中
 - (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"choose");
-    
     WeiboModel *weibo = [self.weibo objectAtIndex:indexPath.row];
     DetailViewController *detail = [[[DetailViewController alloc] initWithNibName:nil bundle:nil] retain];
     detail.weiboModel = weibo;

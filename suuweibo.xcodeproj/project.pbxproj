@@ -73,6 +73,10 @@
 		E62B2DCA1B0AF0CA00E5322E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DC81B0AF0CA00E5322E /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2DCE1B0B276700E5322E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DCC1B0B276700E5322E /* DetailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2DCF1B0B276700E5322E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DCD1B0B276700E5322E /* DetailViewController.xib */; };
+		E62B2DD21B0C520D00E5322E /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD11B0C520D00E5322E /* CommentTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E62B2DD41B0C534D00E5322E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DD31B0C534D00E5322E /* CommentCell.xib */; };
+		E62B2DD71B0C559500E5322E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD61B0C559400E5322E /* CommentCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD91B0C617100E5322E /* CommentModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -207,6 +211,13 @@
 		E62B2DCB1B0B276700E5322E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		E62B2DCC1B0B276700E5322E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E62B2DCD1B0B276700E5322E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		E62B2DD01B0C520D00E5322E /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
+		E62B2DD11B0C520D00E5322E /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
+		E62B2DD31B0C534D00E5322E /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		E62B2DD51B0C559400E5322E /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		E62B2DD61B0C559400E5322E /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		E62B2DD81B0C617100E5322E /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		E62B2DD91B0C617100E5322E /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -395,6 +406,8 @@
 				E6BBCE8B1AFB77BD00257329 /* WeiboModel.m */,
 				E6BBCE8D1AFB7AC400257329 /* UserModel.h */,
 				E6BBCE8E1AFB7AC400257329 /* UserModel.m */,
+				E62B2DD81B0C617100E5322E /* CommentModel.h */,
+				E62B2DD91B0C617100E5322E /* CommentModel.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -472,6 +485,11 @@
 				E62B2DCB1B0B276700E5322E /* DetailViewController.h */,
 				E62B2DCC1B0B276700E5322E /* DetailViewController.m */,
 				E62B2DCD1B0B276700E5322E /* DetailViewController.xib */,
+				E62B2DD01B0C520D00E5322E /* CommentTableView.h */,
+				E62B2DD11B0C520D00E5322E /* CommentTableView.m */,
+				E62B2DD31B0C534D00E5322E /* CommentCell.xib */,
+				E62B2DD51B0C559400E5322E /* CommentCell.h */,
+				E62B2DD61B0C559400E5322E /* CommentCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -675,6 +693,7 @@
 				E6BBCE801AFA1DCB00257329 /* Skins in Resources */,
 				E62B2D9B1B04484300E5322E /* RegexKitLite.html in Resources */,
 				31BB9AB11AF5D0C700C30416 /* libWeiboSDK.a in Resources */,
+				E62B2DD41B0C534D00E5322E /* CommentCell.xib in Resources */,
 				E62B2DB41B08E4F800E5322E /* grayArrow@2x.png in Resources */,
 				317A66A51AEC8EB7004F85BB /* Images.xcassets in Resources */,
 				E62B2DB31B08E4F800E5322E /* grayArrow.png in Resources */,
@@ -723,6 +742,7 @@
 				317A66E61AEC9479004F85BB /* UIImageView+WebCache.m in Sources */,
 				317A66CA1AEC9437004F85BB /* BaseModel.m in Sources */,
 				110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */,
+				E62B2DD71B0C559500E5322E /* CommentCell.m in Sources */,
 				317A670B1AECBEFA004F85BB /* HomeViewController.m in Sources */,
 				317A66C31AEC92D2004F85BB /* UIViewExt.m in Sources */,
 				317A669A1AEC8EB7004F85BB /* main.m in Sources */,
@@ -732,9 +752,11 @@
 				E62B2DB71B08EA2700E5322E /* WeiboTableView.m in Sources */,
 				110E6FAB1AF10B5D002DFFB7 /* LeftViewController.m in Sources */,
 				E62B2DA11B07710100E5322E /* NSString+URLEncoding.m in Sources */,
+				E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */,
 				E6BBCE8C1AFB77BD00257329 /* WeiboModel.m in Sources */,
 				317A67101AECC015004F85BB /* MessageViewController.m in Sources */,
 				E62B2DA41B08E48F00E5322E /* BaseTableView.m in Sources */,
+				E62B2DD21B0C520D00E5322E /* CommentTableView.m in Sources */,
 				317A66FF1AECBCEB004F85BB /* BaseViewController.m in Sources */,
 				317A66E51AEC9479004F85BB /* UIButton+WebCache.m in Sources */,
 				E62B2DC01B0A442B00E5322E /* SuuUitil.m in Sources */,

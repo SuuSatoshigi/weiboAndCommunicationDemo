@@ -60,4 +60,15 @@
     self.viewControllers = viewControllers;
 }
 
+//控制tabar是否隐藏
+- (void)showTabbar:(BOOL)show {
+    [UIView animateWithDuration:0.35 animations:^{
+        if (show) {
+        
+        } else {
+            
+        }
+    }]
+}
+
 @end

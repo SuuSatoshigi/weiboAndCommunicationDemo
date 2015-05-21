@@ -11,8 +11,8 @@
 #import "WeiboModel.h"
 #import "UIImageView+WebCache.h"
 #import "ThemeImageView.h"
-#import "RegexKitLite.h" //处理正则
 #import "NSString+URLEncoding.h"//处理中文
+#import "UIUtils.h"
 #define LIST_FONT   14.0f           //列表中文本字体
 #define LIST_REPOST_FONT  13.0f;    //列表中转发的文本字体
 #define DETAIL_FONT  18.0f          //详情的文本字体
@@ -81,6 +81,7 @@
     if (_repostView ==nil ) {
         _repostView = [[WeiboView alloc] initWithFrame:CGRectZero];
         _repostView.isRepost = YES;
+        _repostView.isDetail = self.isDetail;
         [self addSubview:_repostView];
     }
 }
@@ -88,8 +89,6 @@
 //解析超链接
 - (void) parseLink {
     [_parseLink setString:@""];
-    
-    //
     if (_isRepost) {
         NSString * nickName = _weiboModel.user.screen_name;
         NSString *enco = [nickName URLEncodedString];
@@ -97,30 +96,11 @@
     }
     
     NSString *text = _weiboModel.text;
-    //正则表达式
-    NSString *regex = @"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
-    //导入外部库
-    NSArray *matchArray = [text componentsMatchedByRegex:regex];
-    //得到@user，＃话题＃，http：／／
-    for (NSString *link in matchArray) {
-        //拥有某前缀时
-        NSString *reply = nil;
-        if ([link hasPrefix:@"@"]) {
-            //使用第三方库处理中文乱码问题
-            reply = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[link URLEncodedString],link];
-        } else if ([link hasPrefix:@"http"]) {
-            reply = [NSString stringWithFormat:@"<a href='%@'>%@</a>",link,link];
-        } else if ([link hasPrefix:@"#"]) {
-           reply = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[link URLEncodedString],link];
-        }
-        if (reply != nil) {
-            text = [text stringByReplacingOccurrencesOfString:link withString:reply];
-        }
-        
-    }
+    text = [UIUtils parseLink:text];
+    
     if (text != nil) {
         [_parseLink appendString:text];
-
+        
     }
     
 }
@@ -139,7 +119,6 @@
     //文本内容尺寸
     CGSize textSize = _textLabel.optimumSize;
     
-    NSLog(@"%@",_weiboModel.text);
     
 //   -- 子视图微博内容－－
     _textLabel.frame = CGRectMake(0, 0, self.frame.size.width, textSize.height);
@@ -149,6 +128,7 @@
         _textLabel.frame = CGRectMake(10, 10, self.frame.size.width -20,  textSize.height);
         
     }
+    
 //----------size和height都是只读的
 //    _textLabel.text = _weiboModel.text;
 //    //文本内容尺寸
@@ -184,7 +164,7 @@
         //如果字符串长的会影响性能
         if (midPic != nil&& ![midPic isEqualToString:@""]) {
             _image.hidden = NO;
-            _image.frame = CGRectMake(10, CGRectGetMaxY(_textLabel.frame)+10, 280, 80);
+            _image.frame = CGRectMake(10, CGRectGetMaxY(_textLabel.frame)+10, 280, 200);
             [_image setImageWithURL:[NSURL URLWithString:midPic]];
         } else {
             _image.hidden = YES;
@@ -232,18 +212,13 @@
     RTLabel *textLabel = [[RTLabel alloc] initWithFrame:CGRectZero];
     float fontSize = [WeiboView getFontSize:isdetail isRepost:isRepost];
     textLabel.font = [UIFont systemFontOfSize:fontSize];
-    // 1. 用一个临时变量保存返回值。
-    CGRect temp = textLabel.frame;
-    //
+    
     if (isdetail) {
+        textLabel.frame = [SuuUitil setWidth:textLabel.frame sendWidth:kWeibo_Width_Detail];
         // 2. 给这个变量赋值。因为变量都是L-Value，可以被赋值
-        temp.size.width = kWeibo_Width_List;
     } else {
-        // 2. 给这个变量赋值。因为变量都是L-Value，可以被赋值
-        temp.size.width = kWeibo_Width_Detail;
+        textLabel.frame = [SuuUitil setWidth:textLabel.frame sendWidth:kWeibo_Width_List];
     }
-    // 3. 修改frame的值
-    textLabel.frame = temp;
     textLabel.text = weibo.text;
     height += textLabel.optimumSize.height;
     
@@ -273,9 +248,12 @@
     }
 
     if (isRepost) {
-        height += 50;
+        height += 30;
     }
+    
     [textLabel release];
+    
+    
     
     return height;
 }
