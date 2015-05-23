@@ -78,6 +78,11 @@
 		E62B2DD71B0C559500E5322E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD61B0C559400E5322E /* CommentCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD91B0C617100E5322E /* CommentModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2EF41B1067FB00E5322E /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF31B1067FB00E5322E /* UIView+Additions.m */; };
+		E62B2EF81B106DB900E5322E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF61B106DB900E5322E /* UserViewController.m */; };
+		E62B2EF91B106DB900E5322E /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2EF71B106DB900E5322E /* UserViewController.xib */; };
+		E62B2EFC1B10723100E5322E /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EFB1B10723100E5322E /* UserInfoView.m */; };
+		E62B2EFE1B10727B00E5322E /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2EFD1B10727B00E5322E /* UserInfoView.xib */; };
+		E62B2F011B10792800E5322E /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2F001B10792800E5322E /* RectButton.m */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -221,6 +226,14 @@
 		E62B2DD91B0C617100E5322E /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		E62B2EF21B1067FB00E5322E /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		E62B2EF31B1067FB00E5322E /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		E62B2EF51B106DB900E5322E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		E62B2EF61B106DB900E5322E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		E62B2EF71B106DB900E5322E /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		E62B2EFA1B10723100E5322E /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
+		E62B2EFB1B10723100E5322E /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
+		E62B2EFD1B10727B00E5322E /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
+		E62B2EFF1B10792800E5322E /* RectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectButton.h; sourceTree = "<group>"; };
+		E62B2F001B10792800E5322E /* RectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectButton.m; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -513,6 +526,14 @@
 			isa = PBXGroup;
 			children = (
 				317A67121AECC079004F85BB /* ProfileViewController.h */,
+				E62B2EFA1B10723100E5322E /* UserInfoView.h */,
+				E62B2EFF1B10792800E5322E /* RectButton.h */,
+				E62B2F001B10792800E5322E /* RectButton.m */,
+				E62B2EFD1B10727B00E5322E /* UserInfoView.xib */,
+				E62B2EFB1B10723100E5322E /* UserInfoView.m */,
+				E62B2EF51B106DB900E5322E /* UserViewController.h */,
+				E62B2EF61B106DB900E5322E /* UserViewController.m */,
+				E62B2EF71B106DB900E5322E /* UserViewController.xib */,
 				317A67131AECC079004F85BB /* ProfileViewController.m */,
 				317A67141AECC079004F85BB /* ProfileViewController.xib */,
 			);
@@ -700,6 +721,7 @@
 				31BB9AB11AF5D0C700C30416 /* libWeiboSDK.a in Resources */,
 				E62B2DD41B0C534D00E5322E /* CommentCell.xib in Resources */,
 				E62B2DB41B08E4F800E5322E /* grayArrow@2x.png in Resources */,
+				E62B2EFE1B10727B00E5322E /* UserInfoView.xib in Resources */,
 				317A66A51AEC8EB7004F85BB /* Images.xcassets in Resources */,
 				E62B2DB31B08E4F800E5322E /* grayArrow.png in Resources */,
 				110E6FAC1AF10B5D002DFFB7 /* LeftViewController.xib in Resources */,
@@ -711,6 +733,7 @@
 				317A670C1AECBEFA004F85BB /* HomeViewController.xib in Resources */,
 				E62B2DC91B0AF0CA00E5322E /* 37x-Checkmark.png in Resources */,
 				E62B2DAE1B08E4F800E5322E /* blackArrow.png in Resources */,
+				E62B2EF91B106DB900E5322E /* UserViewController.xib in Resources */,
 				317A67161AECC079004F85BB /* ProfileViewController.xib in Resources */,
 				E6BBCE7E1AF9E6D400257329 /* ThemeViewController.xib in Resources */,
 				E6BBCE761AF7D95200257329 /* theme.plist in Resources */,
@@ -751,6 +774,7 @@
 				317A670B1AECBEFA004F85BB /* HomeViewController.m in Sources */,
 				317A66C31AEC92D2004F85BB /* UIViewExt.m in Sources */,
 				317A669A1AEC8EB7004F85BB /* main.m in Sources */,
+				E62B2EFC1B10723100E5322E /* UserInfoView.m in Sources */,
 				317A66D11AEC946E004F85BB /* DDMenuController.m in Sources */,
 				317A671F1AECC28B004F85BB /* MoreViewController.m in Sources */,
 				317A66C21AEC92D2004F85BB /* UIUtils.m in Sources */,
@@ -758,6 +782,8 @@
 				110E6FAB1AF10B5D002DFFB7 /* LeftViewController.m in Sources */,
 				E62B2DA11B07710100E5322E /* NSString+URLEncoding.m in Sources */,
 				E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */,
+				E62B2EF81B106DB900E5322E /* UserViewController.m in Sources */,
+				E62B2F011B10792800E5322E /* RectButton.m in Sources */,
 				E6BBCE8C1AFB77BD00257329 /* WeiboModel.m in Sources */,
 				317A67101AECC015004F85BB /* MessageViewController.m in Sources */,
 				E62B2DA41B08E48F00E5322E /* BaseTableView.m in Sources */,

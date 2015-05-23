@@ -13,6 +13,8 @@
 #import "ThemeImageView.h"
 #import "NSString+URLEncoding.h"//处理中文
 #import "UIUtils.h"
+#import "UserViewController.h"
+
 #define LIST_FONT   14.0f           //列表中文本字体
 #define LIST_REPOST_FONT  13.0f;    //列表中转发的文本字体
 #define DETAIL_FONT  18.0f          //详情的文本字体
@@ -275,6 +277,8 @@
     if ([urlString hasPrefix:@"user"]) {
         NSString *urlHost = [url host];
         urlHost = [urlHost URLDecodedString];//
+        UserViewController *userController = [[UserViewController alloc] init];
+        [self.viewController.navigationController pushViewController:userController  animated:YES];
         NSLog(@"user:%@",urlHost);
     } else if ([urlString hasPrefix:@"http"]) {
         NSLog(@"connection::%@",url);
