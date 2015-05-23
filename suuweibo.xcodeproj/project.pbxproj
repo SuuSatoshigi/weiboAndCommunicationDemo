@@ -77,6 +77,7 @@
 		E62B2DD41B0C534D00E5322E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DD31B0C534D00E5322E /* CommentCell.xib */; };
 		E62B2DD71B0C559500E5322E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD61B0C559400E5322E /* CommentCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD91B0C617100E5322E /* CommentModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E62B2EF41B1067FB00E5322E /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF31B1067FB00E5322E /* UIView+Additions.m */; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -218,6 +219,8 @@
 		E62B2DD61B0C559400E5322E /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		E62B2DD81B0C617100E5322E /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		E62B2DD91B0C617100E5322E /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		E62B2EF21B1067FB00E5322E /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		E62B2EF31B1067FB00E5322E /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		E665C3021AF39364002D8F20 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E665C3031AF39364002D8F20 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		E665C3041AF39364002D8F20 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -393,6 +396,8 @@
 				31BB9AB81AF60CBB00C30416 /* CONSTS.h */,
 				E62B2DBE1B0A442B00E5322E /* SuuUitil.h */,
 				E62B2DBF1B0A442B00E5322E /* SuuUitil.m */,
+				E62B2EF21B1067FB00E5322E /* UIView+Additions.h */,
+				E62B2EF31B1067FB00E5322E /* UIView+Additions.m */,
 			);
 			name = uitil;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				E62B2DD21B0C520D00E5322E /* CommentTableView.m in Sources */,
 				317A66FF1AECBCEB004F85BB /* BaseViewController.m in Sources */,
 				317A66E51AEC9479004F85BB /* UIButton+WebCache.m in Sources */,
+				E62B2EF41B1067FB00E5322E /* UIView+Additions.m in Sources */,
 				E62B2DC01B0A442B00E5322E /* SuuUitil.m in Sources */,
 				E6BBCE791AF906F300257329 /* themeButton.m in Sources */,
 				E6BBCE8F1AFB7AC400257329 /* UserModel.m in Sources */,

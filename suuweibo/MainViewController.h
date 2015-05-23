@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "WeiboSDK.h"
-
+@class HomeViewController;
 @interface MainViewController : UITabBarController<WBHttpRequestDelegate> {
     UIImageView *_badgeView;
-    
+    HomeViewController *home;
 }
 
 //控制tabar是否隐藏

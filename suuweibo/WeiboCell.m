@@ -111,6 +111,8 @@
     float h = [WeiboView getWeiboViewHeight:_weibo isRepost:NO isDetail:NO]; //weibo cell下的微博必定不是转发，转发的内容嵌套在微博里
 #pragma warning --一定要改宽度
     _weiboView.frame = CGRectMake(50, CGRectGetMaxY(_nickLabel.frame), kWeibo_Width_List, h);//CGRectGetMaxY(_nickLabel.frame)是指在nicknamelabel下（bottom）
+    //调用weiboview后的重新布局
+    [_weiboView setNeedsDisplay];
     
 }
 

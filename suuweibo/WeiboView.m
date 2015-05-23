@@ -219,7 +219,18 @@
     } else {
         textLabel.frame = [SuuUitil setWidth:textLabel.frame sendWidth:kWeibo_Width_List];
     }
-    textLabel.text = weibo.text;
+    
+    NSString *weiboText = nil;
+    if (isRepost) {
+        textLabel.frame = [SuuUitil setWidth:textLabel.frame sendWidth:textLabel.frame.size.width-20];
+        NSString *nickName = weibo.user.screen_name;
+        weiboText = [NSString stringWithFormat:@"%@:%@",nickName,weibo.text];
+    } else {
+        weiboText = weibo.text;
+    }
+    
+    
+    textLabel.text = weiboText;
     height += textLabel.optimumSize.height;
     
     //----------------计算微博图片高度－－－－－－－－－

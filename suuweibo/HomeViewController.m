@@ -233,6 +233,7 @@
         if (array.count > 0) {
             WeiboModel *top = [array objectAtIndex:0];
             self.topWeiboID = [top.weiboId stringValue];
+            [array removeObjectAtIndex:0];
         }
         
         //把旧的微博数组追加到新的微博数组后面
@@ -328,6 +329,7 @@
     [WeiboSDK sendRequest:authRequest];
     [self saveWeiboAuth:self.myAppDelegate];
 }
+
 
 - (void)loginOutAction:(UIBarButtonItem *)buttonItem {
     [WeiboSDK logOutWithToken:self.myAppDelegate.author.accessToken delegate:self withTag:@"user1"];

@@ -44,7 +44,7 @@
 
 //初始化子控制器
 - (void)_initViewController {
-    HomeViewController *home = [[[HomeViewController alloc] init] autorelease];
+    home = [[HomeViewController alloc] init] ;
     MessageViewController *message = [[[MessageViewController alloc] init] autorelease];
     ProfileViewController *profile = [[[ProfileViewController alloc] init] autorelease];
     DiscoverViewController *discover = [[[DiscoverViewController alloc]init] autorelease];

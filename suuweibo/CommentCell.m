@@ -50,6 +50,7 @@
     commt = [UIUtils parseLink:commt];
     _contentLabel.text = commt;
     _contentLabel.frame = [SuuUitil setHeight:_contentLabel.frame sendHeight:_contentLabel.optimumSize.height];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
