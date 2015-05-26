@@ -9,7 +9,7 @@
 #ifndef suuweibo_CONSTS_h
 #define suuweibo_CONSTS_h
 
-
+#define kUserID  @"kUserID"
 #define kAccessToken         @"kAccessToken"
 #define kThemeName      @"kThemeName"
 #define kAppKey         @"1589467727"

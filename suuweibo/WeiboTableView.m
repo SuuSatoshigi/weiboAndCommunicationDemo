@@ -10,6 +10,8 @@
 #import "WeiboCell.h"
 #import "WeiboModel.h"
 #import "WeiboView.h"
+#import "DetailViewController.h"
+
 @implementation WeiboTableView
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame style:style];
@@ -47,4 +49,11 @@
     return height;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
+    DetailViewController *detail = [[[DetailViewController alloc] initWithNibName:nil bundle:nil] retain];
+    detail.weiboModel = weibo;
+    [self.viewController.navigationController pushViewController:detail animated:YES];
+    [detail release];
+}
 @end

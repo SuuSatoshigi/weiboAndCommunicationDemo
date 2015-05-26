@@ -304,14 +304,14 @@
     [self pullDownData];
 }
 
-//选中
-- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WeiboModel *weibo = [self.weibo objectAtIndex:indexPath.row];
-    DetailViewController *detail = [[[DetailViewController alloc] initWithNibName:nil bundle:nil] retain];
-    detail.weiboModel = weibo;
-    [self.navigationController pushViewController:detail animated:YES];
-    [detail release];
-}
+////选中
+//- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    WeiboModel *weibo = [self.weibo objectAtIndex:indexPath.row];
+//    DetailViewController *detail = [[[DetailViewController alloc] initWithNibName:nil bundle:nil] retain];
+//    detail.weiboModel = weibo;
+//    [self.navigationController pushViewController:detail animated:YES];
+//    [detail release];
+//}
 
 #pragma mark - actions
 - (void)bindAction:(UIBarButtonItem *)buttonItem {

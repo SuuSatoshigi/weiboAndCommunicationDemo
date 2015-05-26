@@ -49,7 +49,7 @@
 @property(nonatomic,copy)NSString *location;        //用户所在地
 @property(nonatomic,copy)NSString *description;     //用户个人描述
 @property(nonatomic,copy)NSString *url;             //用户博客地址
-@property(nonatomic,copy)NSString * profile_image_url;  //用户头像地址，50×50像素
+@property(nonatomic,copy)NSString * profile_image_url;      //用户头像地址，50×50像素
 @property(nonatomic,copy)NSString * avatar_large;  //用户大头像地址
 @property(nonatomic,copy)NSString * gender;             //性别，m：男、f：女、n：未知
 @property(nonatomic,retain)NSNumber * followers_count;    //粉丝数

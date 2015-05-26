@@ -525,7 +525,6 @@
 		317A67051AECBE21004F85BB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				317A67121AECC079004F85BB /* ProfileViewController.h */,
 				E62B2EFA1B10723100E5322E /* UserInfoView.h */,
 				E62B2EFF1B10792800E5322E /* RectButton.h */,
 				E62B2F001B10792800E5322E /* RectButton.m */,
@@ -535,6 +534,7 @@
 				E62B2EF61B106DB900E5322E /* UserViewController.m */,
 				E62B2EF71B106DB900E5322E /* UserViewController.xib */,
 				317A67131AECC079004F85BB /* ProfileViewController.m */,
+				317A67121AECC079004F85BB /* ProfileViewController.h */,
 				317A67141AECC079004F85BB /* ProfileViewController.xib */,
 			);
 			name = Profile;

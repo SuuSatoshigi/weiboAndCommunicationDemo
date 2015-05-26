@@ -149,7 +149,7 @@
     //只能选自己ns的，不能设置其他的，要能设进去的话就要实现nscoding协议
 //    [[NSUserDefaults standardUserDefaults] setObject:_author forKey:kAuther];
     [[NSUserDefaults standardUserDefaults] setObject:_author.accessToken forKey:kAccessToken];
-    
+    [[NSUserDefaults standardUserDefaults] setObject:_author.userID forKey:kUserID];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }

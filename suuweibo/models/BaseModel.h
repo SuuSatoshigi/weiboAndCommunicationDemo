@@ -17,7 +17,7 @@
 - (NSDictionary*)attributeMapDictionary;
 - (void)setAttributes:(NSDictionary*)dataDic;
 - (NSString *)customDescription;
-- (NSString *)description;
+- (NSString *)descriptionM;
 - (NSData*)getArchivedData;
 
 - (NSString *)cleanString:(NSString *)str;    //清除\n和\r的字符串

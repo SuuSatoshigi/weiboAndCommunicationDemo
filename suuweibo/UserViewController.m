@@ -41,10 +41,6 @@
 - (void)pullUp:(BaseTableView *)tableView {
     [tableView performSelector:@selector(reloadData) withObject:nil afterDelay:2];
 }
-//选中delegate
-- (void)tableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
 
 /*
  接口升级后，对未授权本应用的uid，将无法获取其个人简介、认证原因、粉丝数、关注数、微博数及最近一条微博内容。

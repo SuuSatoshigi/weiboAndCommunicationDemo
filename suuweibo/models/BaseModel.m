@@ -30,7 +30,7 @@
 	return nil;
 }
 
-- (NSString *)description{
+- (NSString *)descriptionM{
 	NSMutableString *attrsDesc = [NSMutableString stringWithCapacity:100];
 	NSDictionary *attrMapDic = [self attributeMapDictionary];
 	NSEnumerator *keyEnum = [attrMapDic keyEnumerator];
