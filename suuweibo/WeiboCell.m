@@ -12,7 +12,8 @@
 #import "UIImageView+WebCache.h"
 #import "UIUtils.h"
 #import "RegexKitLite.h"
-
+#import "ImageView.h"
+#import "UserViewController.h"
 @implementation WeiboCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -24,13 +25,14 @@
 
 - (void)_initView {
     //－－－－－－用户头像－－－－－－－
-    _userImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+    _userImage = [[ImageView alloc] initWithFrame:CGRectZero];
     _userImage.backgroundColor = [UIColor clearColor];
     //设置圆角
     _userImage.layer.cornerRadius = 5;//圆弧半径
     _userImage.layer.borderWidth = .5;//边框大小
     _userImage.layer.borderColor = [UIColor grayColor].CGColor;//
     _userImage.layer.masksToBounds =YES;//是否裁剪
+    
     [self.contentView addSubview:_userImage];
     
 //    －－－－昵称－－－－
@@ -63,8 +65,31 @@
     
     //微博视图
     _weiboView = [[WeiboView alloc] initWithFrame:CGRectZero];
+    
     [self.contentView addSubview:_weiboView];
     
+}
+
+//因为拿不到昵称所以重写setter
+- (void)setWeibo:(WeiboModel *)weibo {
+    if (_weibo != weibo) {
+        [_weibo release];
+        _weibo = [weibo retain];
+    }
+    
+    //防止循环引，不能用self
+    __block WeiboCell *this = self;
+    
+    _userImage.touchBlock = ^{
+        
+//        NSString *nickName = this.weibo.user.screen_name;
+        NSString *userId = this.weibo.user.idstr;
+        
+        UserViewController *userController = [[UserViewController alloc] init];
+        userController.userId  = userId;
+        [this.viewController.navigationController pushViewController:userController animated:YES];
+        [userController release];
+    };
 }
 
 - (void)layoutSubviews {

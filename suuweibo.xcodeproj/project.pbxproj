@@ -11,6 +11,9 @@
 		110E6FAC1AF10B5D002DFFB7 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E6FAA1AF10B5D002DFFB7 /* LeftViewController.xib */; };
 		110E6FB01AF10C89002DFFB7 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110E6FAE1AF10C89002DFFB7 /* RightViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		110E6FB11AF10C89002DFFB7 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E6FAF1AF10C89002DFFB7 /* RightViewController.xib */; };
+		11B5FE731B14E3A000DCECEE /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B5FE721B14E3A000DCECEE /* ImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		11B5FE771B14F96D00DCECEE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B5FE751B14F96D00DCECEE /* WebViewController.m */; };
+		11B5FE781B14F96D00DCECEE /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11B5FE761B14F96D00DCECEE /* WebViewController.xib */; };
 		317A669A1AEC8EB7004F85BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A66991AEC8EB7004F85BB /* main.m */; };
 		317A669D1AEC8EB7004F85BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 317A669C1AEC8EB7004F85BB /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		317A66A51AEC8EB7004F85BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 317A66A41AEC8EB7004F85BB /* Images.xcassets */; };
@@ -115,6 +118,11 @@
 		110E6FAD1AF10C89002DFFB7 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
 		110E6FAE1AF10C89002DFFB7 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		110E6FAF1AF10C89002DFFB7 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
+		11B5FE711B14E3A000DCECEE /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		11B5FE721B14E3A000DCECEE /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		11B5FE741B14F96D00DCECEE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		11B5FE751B14F96D00DCECEE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		11B5FE761B14F96D00DCECEE /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		317A66941AEC8EB7004F85BB /* suuweibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = suuweibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		317A66981AEC8EB7004F85BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		317A66991AEC8EB7004F85BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -310,6 +318,15 @@
 			name = opensource;
 			sourceTree = "<group>";
 		};
+		11B5FE701B14E34600DCECEE /* commonView */ = {
+			isa = PBXGroup;
+			children = (
+				11B5FE711B14E3A000DCECEE /* ImageView.h */,
+				11B5FE721B14E3A000DCECEE /* ImageView.m */,
+			);
+			name = commonView;
+			sourceTree = "<group>";
+		};
 		317A668B1AEC8EB7004F85BB = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +360,7 @@
 		317A66961AEC8EB7004F85BB /* suuweibo */ = {
 			isa = PBXGroup;
 			children = (
+				11B5FE701B14E34600DCECEE /* commonView */,
 				317A67211AECD504004F85BB /* suuweibo_prefix.pch */,
 				317A67071AECBE4E004F85BB /* More */,
 				317A67061AECBE3F004F85BB /* Discover */,
@@ -504,6 +522,9 @@
 				E62B2DCC1B0B276700E5322E /* DetailViewController.m */,
 				E62B2DCD1B0B276700E5322E /* DetailViewController.xib */,
 				E62B2DD01B0C520D00E5322E /* CommentTableView.h */,
+				11B5FE741B14F96D00DCECEE /* WebViewController.h */,
+				11B5FE751B14F96D00DCECEE /* WebViewController.m */,
+				11B5FE761B14F96D00DCECEE /* WebViewController.xib */,
 				E62B2DD11B0C520D00E5322E /* CommentTableView.m */,
 				E62B2DD31B0C534D00E5322E /* CommentCell.xib */,
 				E62B2DD51B0C559400E5322E /* CommentCell.h */,
@@ -728,6 +749,7 @@
 				317A67201AECC28B004F85BB /* MoreViewController.xib in Resources */,
 				E62B2DB11B08E4F800E5322E /* blueArrow@2x.png in Resources */,
 				E62B2DCF1B0B276700E5322E /* DetailViewController.xib in Resources */,
+				11B5FE781B14F96D00DCECEE /* WebViewController.xib in Resources */,
 				E62B2DB01B08E4F800E5322E /* blueArrow.png in Resources */,
 				E62B2DAF1B08E4F800E5322E /* blackArrow@2x.png in Resources */,
 				317A670C1AECBEFA004F85BB /* HomeViewController.xib in Resources */,
@@ -775,6 +797,7 @@
 				317A66C31AEC92D2004F85BB /* UIViewExt.m in Sources */,
 				317A669A1AEC8EB7004F85BB /* main.m in Sources */,
 				E62B2EFC1B10723100E5322E /* UserInfoView.m in Sources */,
+				11B5FE731B14E3A000DCECEE /* ImageView.m in Sources */,
 				317A66D11AEC946E004F85BB /* DDMenuController.m in Sources */,
 				317A671F1AECC28B004F85BB /* MoreViewController.m in Sources */,
 				317A66C21AEC92D2004F85BB /* UIUtils.m in Sources */,
@@ -783,6 +806,7 @@
 				E62B2DA11B07710100E5322E /* NSString+URLEncoding.m in Sources */,
 				E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */,
 				E62B2EF81B106DB900E5322E /* UserViewController.m in Sources */,
+				11B5FE771B14F96D00DCECEE /* WebViewController.m in Sources */,
 				E62B2F011B10792800E5322E /* RectButton.m in Sources */,
 				E6BBCE8C1AFB77BD00257329 /* WeiboModel.m in Sources */,
 				317A67101AECC015004F85BB /* MessageViewController.m in Sources */,

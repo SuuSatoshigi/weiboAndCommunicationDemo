@@ -14,7 +14,7 @@
 #import "NSString+URLEncoding.h"//处理中文
 #import "UIUtils.h"
 #import "UserViewController.h"
-
+#import "WebViewController.h"
 #define LIST_FONT   14.0f           //列表中文本字体
 #define LIST_REPOST_FONT  13.0f;    //列表中转发的文本字体
 #define DETAIL_FONT  18.0f          //详情的文本字体
@@ -277,12 +277,13 @@
     if ([urlString hasPrefix:@"user"]) {
         NSString *urlHost = [url host];
         urlHost = [urlHost URLDecodedString];//
-        UserViewController *userController = [[UserViewController alloc] init];
-        userController.userName = urlHost;
-        [self.viewController.navigationController pushViewController:userController  animated:YES];
-        NSLog(@"user:%@",urlHost);
+        [self loadData:[urlHost substringFromIndex:1]];
+        NSLog(@"user:%@",[urlHost substringFromIndex:1]);
     } else if ([urlString hasPrefix:@"http"]) {
-        NSLog(@"connection::%@",url);
+        NSLog(@"connection::%@",urlString);
+        WebViewController *webview = [[WebViewController alloc] initWithUrl:urlString];
+        [self.viewController.navigationController pushViewController:webview animated:YES];
+        [webview release];
     } else if ([urlString hasPrefix:@"topic"]) {
         NSString *urlHost = [url host];
         urlHost = [urlHost URLDecodedString];//
@@ -290,4 +291,34 @@
     }
 }
 
+//获取某个用户id
+- (void)loadData:(NSString *)name {
+   
+    NSString *accessToken =[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
+    if (name.length == 0) {
+        return ;
+    }
+    
+    //    获取自己的微博，参数uid与screen_name可以不填，则自动获取当前登录用户的微博
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:name ,@"screen_name", nil];
+    NSString *url = @"https://api.weibo.com/2/users/show.json";
+    
+    [WBHttpRequest requestWithAccessToken:accessToken
+                                      url:url
+                               httpMethod:@"GET"
+                                   params:param
+                                 delegate:self
+                                  withTag:nil];
+}
+
+#pragma mark -
+#pragma WBHttpRequestDelegate
+//网络加载完成
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result{
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+    NSString *userId = [[dic objectForKey:@"id"] stringValue];
+    UserViewController *userController = [[UserViewController alloc] init];
+    userController.userId = userId;
+    [self.viewController.navigationController pushViewController:userController  animated:YES];
+}
 @end

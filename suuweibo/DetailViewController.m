@@ -58,12 +58,10 @@
     _weiboView = [[WeiboView alloc] initWithFrame:CGRectMake(10,[SuuUitil bottom:tableleHeaderView.frame]+10, [SuuUitil ScreenWidth]-15, h)];
     _weiboView.isDetail = YES;
     _weiboView.weiboModel = _weiboModel;
-    
     [tableleHeaderView addSubview:_weiboView];
     tableleHeaderView.frame = [SuuUitil setHeight:tableleHeaderView.frame sendHeight:tableleHeaderView.frame.size.height+h+10];
 
     self.tableView.tableHeaderView = tableleHeaderView;
-    
    
     [tableleHeaderView release];
     
@@ -108,7 +106,7 @@
     }
     self.tableView.data = comments;
     
-    NSLog(@"------------tell me why 2 :%lf",self.tableView.frame.size.height);
+    
     //刷新
     [self.tableView reloadData];
 }

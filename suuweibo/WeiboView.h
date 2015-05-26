@@ -31,8 +31,6 @@
 
 @property(nonatomic, assign)BOOL isRepost; //是否转发
 
-@property(nonatomic, assign)NSInteger *findUserId;//点击用户的id
-
 //受两个因素影响，是否转发和是否详情
 + (CGFloat)getFontSize:(BOOL)isDetail isRepost:(BOOL)isRepost;
 

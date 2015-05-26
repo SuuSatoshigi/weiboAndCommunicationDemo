@@ -36,6 +36,7 @@
     }
     WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
     cell.weibo = weibo;
+    
     return cell;
 }
 

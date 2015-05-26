@@ -8,6 +8,7 @@
 
 #import "UserViewController.h"
 #import "UserInfoView.h"
+#import "WeiboModel.h"
 @interface UserViewController ()
 
 @end
@@ -17,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"用户中心";
     
     //利用userinfoview生成uiview的xib，一种连线方式
     self.userInfo = [[[UserInfoView alloc] initWithFrame:CGRectMake(0, 0, [SuuUitil ScreenWidth], 230)] autorelease];
@@ -50,12 +50,14 @@
     //显示加载提示
     [super showHud:@"loading" isDim:NO];
     //    [super showLoading:YES];
-    if (self.userName.length == 0) {
+    
+    NSString *accessToken =[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
+    if (self.userId.length == 0) {
         return ;
     }
-    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.userName,@"screen_name", nil];
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.userId ,@"uid", nil];
     NSString *url = @"https://api.weibo.com/2/users/show.json";
-    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+    [WBHttpRequest requestWithAccessToken:accessToken
                                       url:url
                                httpMethod:@"GET"
                                    params:param
@@ -63,16 +65,20 @@
                                   withTag:@"loadUser"];
 }
 
+//获取某个用户最新发表的微博列表
 - (void)loadWeiborData {
     //显示加载提示
     [super showHud:@"loading" isDim:NO];
-    //    [super showLoading:YES];
-    if (self.userName.length == 0) {
+    NSString *accessToken =[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
+    if (self.userId.length == 0) {
         return ;
     }
-    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.userName,@"screen_name", nil];
-    NSString *url = @"https://api.weibo.com/2/users/show.json";
-    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+    
+    //    获取自己的微博，参数uid与screen_name可以不填，则自动获取当前登录用户的微博
+        NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.userId ,@"uid", nil];
+    NSString *url = @"https://api.weibo.com/2/statuses/user_timeline.json";
+    
+    [WBHttpRequest requestWithAccessToken:accessToken
                                       url:url
                                httpMethod:@"GET"
                                    params:param
@@ -86,12 +92,34 @@
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)result{
     [super hiddenHud];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-    UserModel *userModel = [[UserModel alloc] initWithDataDic:dic];
     if ([request.tag isEqualToString:@"loadUser"]) {
+        UserModel *userModel = [[UserModel alloc] initWithDataDic:dic];
         self.userInfo.user = userModel;
         self.tableView.tableHeaderView = self.userInfo;
+        
+        [self loadWeiborData];
+        
+    } else if ([request.tag isEqualToString:@"loadWeibo"]) {
+        NSArray *statuse = [dic objectForKey:@"statuses"];
+        //这个方法返回一个添加了autorelease的对象
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:statuse.count];
+        for (NSDictionary *statusDic in statuse) {
+            WeiboModel *weiboModel = [[WeiboModel alloc] initWithDataDic:statusDic];
+            [array addObject:weiboModel];
+            //weibo走出循环后计数自动释放（在循环里是1，但是因为没有retain所以不用管，），而weibomodel在这里引用计数为2
+            [weiboModel release];
+        }
+        self.tableView.data = array;
+        //        if (array.count >= 20) {
+        //            self.tableView.isMore = YES;
+        //        } else  {
+        //             self.tableView.isMore = NO;
+        //        }
+        
+        [self.tableView reloadData];
     }
 }
+
 /*
 #pragma mark - Navigation
 

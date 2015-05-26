@@ -12,6 +12,6 @@
 @class UserInfoView;
 @interface UserViewController : BaseViewController <WBHttpRequestDelegate, UITableViewEventDelagate>
 @property (retain, nonatomic) IBOutlet WeiboTableView *tableView;
-@property (retain, nonatomic) NSString *userName;
+@property (retain, nonatomic) NSString *userId;
 @property (retain, nonatomic) UserInfoView *userInfo;
 @end
