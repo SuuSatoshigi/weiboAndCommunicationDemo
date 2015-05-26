@@ -8,8 +8,10 @@
 
 #import "BaseViewController.h"
 #import "WeiboTableView.h"
-
-@interface UserViewController : BaseViewController
+#import "WBHttpRequest.h"
+@class UserInfoView;
+@interface UserViewController : BaseViewController <WBHttpRequestDelegate, UITableViewEventDelagate>
 @property (retain, nonatomic) IBOutlet WeiboTableView *tableView;
-@property (
+@property (retain, nonatomic) NSString *userName;
+@property (retain, nonatomic) UserInfoView *userInfo;
 @end

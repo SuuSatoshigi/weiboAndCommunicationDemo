@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RTLabel.h"
-
+#import "WBHttpRequest.h"
 
 #define kWeibo_Width_List  (320-60) //微博在列表中的宽度
 #define kWeibo_Width_Detail 300     //微博在详情页面的宽度
@@ -16,7 +16,7 @@
 //如果需要实现delegate用import导入
 @class WeiboModel;
 @class ThemeImageView;
-@interface WeiboView : UIView <RTLabelDelegate> {
+@interface WeiboView : UIView <RTLabelDelegate,WBHttpRequestDelegate> {
 @private
     RTLabel     *_textLabel;            //微博内容
     UIImageView *_image;    //图片
@@ -30,6 +30,8 @@
 @property(nonatomic, assign)BOOL isDetail;//微博是否在详情页面
 
 @property(nonatomic, assign)BOOL isRepost; //是否转发
+
+@property(nonatomic, assign)NSInteger *findUserId;//点击用户的id
 
 //受两个因素影响，是否转发和是否详情
 + (CGFloat)getFontSize:(BOOL)isDetail isRepost:(BOOL)isRepost;

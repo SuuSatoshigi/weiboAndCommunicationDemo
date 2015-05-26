@@ -77,12 +77,12 @@
 		E62B2DD41B0C534D00E5322E /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2DD31B0C534D00E5322E /* CommentCell.xib */; };
 		E62B2DD71B0C559500E5322E /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD61B0C559400E5322E /* CommentCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2DDA1B0C617200E5322E /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2DD91B0C617100E5322E /* CommentModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E62B2EF41B1067FB00E5322E /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF31B1067FB00E5322E /* UIView+Additions.m */; };
-		E62B2EF81B106DB900E5322E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF61B106DB900E5322E /* UserViewController.m */; };
+		E62B2EF41B1067FB00E5322E /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF31B1067FB00E5322E /* UIView+Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E62B2EF81B106DB900E5322E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EF61B106DB900E5322E /* UserViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2EF91B106DB900E5322E /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2EF71B106DB900E5322E /* UserViewController.xib */; };
-		E62B2EFC1B10723100E5322E /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EFB1B10723100E5322E /* UserInfoView.m */; };
+		E62B2EFC1B10723100E5322E /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2EFB1B10723100E5322E /* UserInfoView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E62B2EFE1B10727B00E5322E /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E62B2EFD1B10727B00E5322E /* UserInfoView.xib */; };
-		E62B2F011B10792800E5322E /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2F001B10792800E5322E /* RectButton.m */; };
+		E62B2F011B10792800E5322E /* RectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E62B2F001B10792800E5322E /* RectButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E665C30D1AF39365002D8F20 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E665C3021AF39364002D8F20 /* libWeiboSDK.a */; };
 		E665C30E1AF39365002D8F20 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E665C30A1AF39365002D8F20 /* WeiboSDK.bundle */; };
 		E6BBCE741AF7D8FB00257329 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BBCE731AF7D8FB00257329 /* ThemeManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };

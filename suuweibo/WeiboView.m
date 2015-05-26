@@ -278,6 +278,7 @@
         NSString *urlHost = [url host];
         urlHost = [urlHost URLDecodedString];//
         UserViewController *userController = [[UserViewController alloc] init];
+        userController.userName = urlHost;
         [self.viewController.navigationController pushViewController:userController  animated:YES];
         NSLog(@"user:%@",urlHost);
     } else if ([urlString hasPrefix:@"http"]) {
