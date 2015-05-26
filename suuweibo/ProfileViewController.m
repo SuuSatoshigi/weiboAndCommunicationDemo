@@ -32,7 +32,6 @@
     self.tableView.eventDelegate = self;
     
     [self loadUserData];
-//    [self loadWeiborData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,19 +77,19 @@
 - (void)loadWeiborData {
     //显示加载提示
     [super showHud:@"loading" isDim:NO];
-    //    [super showLoading:YES];
-    if (self.userName.length == 0) {
+    NSString *accessToken =[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken];
+    if (accessToken.length == 0) {
         return ;
     }
 
 //    获取自己的微博，参数uid与screen_name可以不填，则自动获取当前登录用户的微博
-    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys: [[NSUserDefaults standardUserDefaults] objectForKey:kUserID],@"uid", nil];
+//    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys: [[NSUserDefaults standardUserDefaults] objectForKey:kUserID],@"uid", nil];
     NSString *url = @"https://api.weibo.com/2/statuses/user_timeline.json";
     
-    [WBHttpRequest requestWithAccessToken:[[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]
+    [WBHttpRequest requestWithAccessToken:accessToken
                                       url:url
                                httpMethod:@"GET"
-                                   params:param
+                                   params:nil
                                  delegate:self
                                   withTag:@"loadWeibo"];
 }
@@ -103,10 +102,10 @@
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
     if ([request.tag isEqualToString:@"loadUser"]) {
         UserModel *userModel = [[UserModel alloc] initWithDataDic:dic];
-        
-        [self loadWeiborData];
         self.userInfo.user = userModel;
         self.tableView.tableHeaderView = self.userInfo;
+        
+        [self loadWeiborData];
         
     } else if ([request.tag isEqualToString:@"loadWeibo"]) {
         NSArray *statuse = [dic objectForKey:@"statuses"];

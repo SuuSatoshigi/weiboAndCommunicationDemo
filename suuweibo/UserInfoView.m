@@ -23,6 +23,7 @@
     if (self) {
         //创建的是uiview，file‘s owner是userinfoview
         UIView *userInfo = [[[NSBundle mainBundle] loadNibNamed:@"UserInfoView" owner:self options:nil] lastObject];
+        userInfo.backgroundColor = [UIColor clearColor];
         [self addSubview:userInfo];
     }
     return self;
